@@ -1,0 +1,99 @@
+#login-box {
+	background-color: rgb(255, 255, 255);
+	width: 500px;
+	height: 500px;
+	border: deepskyblue solid 10px;
+	border-radius: 30px;
+	margin: 0 auto;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	position: relative;
+	top: 100px;
+}
+
+#login-box-logo {
+	width: 100%;
+	text-align: center;
+}
+
+#login-box-head {
+	width: 100%;
+	text-align: center;
+}
+
+#login-box-input{
+	margin: 0 auto;
+}
+
+.input-class-box{
+	height: 40px;
+	margin: 15px auto;
+	border: solid 2px deepskyblue;
+	border-radius: 20px;
+	padding: 0 15px;
+}
+
+.input-class-box img{
+	height: 40px;
+	width: 40px;
+}
+
+.input-class {
+	width: 300px;
+	height: 40px;
+	border: 0;
+	border-radius: 20px;
+	font-size: 18px;
+	outline: none;
+	vertical-align: top;
+	padding: 0 10px;
+}
+
+#login-box-input-check{
+	width: 100%;
+	display: flex;
+}
+
+#check-input-tip{
+	width: 50%;
+	text-align: left;
+	color: red;
+}
+#check-input-remenberPassword{
+	width: 50%;
+	text-align: right;
+}
+
+.input-button {
+	width: 400px;
+	height: 40px;
+	margin: 15px auto;
+	color: #00BFFF;
+	border-radius: 20px;
+	background-color: white;
+	border: solid 2px deepskyblue;
+	outline: none;
+	font-size: 18px;
+}
+
+.input-button:hover{
+	background-color: #00BFFF;
+	color: white;
+}
+
+#login-box-foot {
+	width: 100%;
+	text-align: center;
+}
+
+#login-box-foot a {
+	text-decoration: none;
+	font-size: 14px;
+	color:black;
+}
+
+#login-box-foot a:visited{
+	color: black;
+}
+
