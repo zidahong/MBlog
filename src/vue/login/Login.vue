@@ -1,18 +1,18 @@
 <template>
   <div id="login-box">
 			<div id="login-box-logo">
-				<img src="../img/logo.png" >
+				<img src="../img/login/logo.png" >
 			</div>
 			<div id="login-box-head">
 				<h1>登陆</h1>
 			</div>
 			<div id="login-box-input">
 				<div class="input-class-box">
-					<img src="../img/loginUser.png" >
+					<img src="../img/login/loginUser.png" >
 					<input id="login-box-input-user" type="text" v-model="user" placeholder="用户名" class="input-class" />
 				</div>
 				<div class="input-class-box">
-					<img src="../img/loginPassword.png">
+					<img src="../img/login/loginPassword.png">
 					<input id="login-box-input-password"  type="password" v-model="password" placeholder="输入密码" class="input-class" />
 				</div>
 
@@ -65,8 +65,7 @@ export default {
 				}
 				else{
 					alert('登陆成功，欢迎用户：'+xhr.responseText)
-				}
-				
+				}	
             }
 
         }

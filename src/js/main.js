@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import App from '../vue/App'
+import '../css/base'
 
 
 const app = new Vue({

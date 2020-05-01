@@ -6,7 +6,8 @@ module.exports = {
     entry: './src/js/main.js',
     output: {
         path: path.resolve(__dirname, 'dist'),
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        publicPath: 'dist/'
     },
     resolve: {
         extensions: ['.vue', '.js', '.css'], //增加这一行，还可以自行添加需要的

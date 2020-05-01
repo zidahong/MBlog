@@ -1,16 +1,19 @@
 <template>
 <div>
-    <Login></Login>
+    <Headbox></Headbox>
+    <BackgroundBox></BackgroundBox>
 </div>
   
 </template>
 
 <script>
-import Login from './Login'
+import BackgroundBox from './page/box/BackgroundBox';
+import Headbox from './page/headBox/Headbox'
 export default {
     name:'App',
     components:{
-        Login,
+        Headbox,
+       BackgroundBox,
     }
 }
 </script>
