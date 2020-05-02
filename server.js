@@ -14,14 +14,13 @@ app.use(express.static(path.join(__dirname, 'dist')));
 // app.use(bodyParser.json());
 
 app.get('/',(req,res)=>{
-    console.log(req.cookie);
 })
 
 app.post("/",(req,res)=>{
     mysqlQuery(req.body.name,req.body.password,(result)=>{
         console.log(result);
         if(result){
-            res.cookie(result,"isLogin");
+            res.cookie('LoginName',result);
             res.send(result); 
         }
          

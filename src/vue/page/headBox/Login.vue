@@ -7,7 +7,7 @@
     <div id="login-box-after" v-else>
         <img src="../../../img/login/headpic.png">
         <a href="/">设置</a>
-        <a href="/">退出</a>
+        <a @click="isLoginOut">退出</a>
     </div>
     <LoginPage v-if="isShow" @isCloseLoginPage="isClose" @isLoginOk="isLogin"></LoginPage>
   </div>
@@ -34,11 +34,22 @@ export default {
       isLogin(val){
         this.isShowLogin = !val;
         this.isShow = !val; 
+      },
+      isLoginOut(){
+            document.cookie=document.cookie.match(/[^ =;]+(?=\=)/g)[0]+'=0;expires=' + new Date( 0).toUTCString();
+            location.reload();   
       }
     },
     components:{
       LoginPage,
-    }
+    },
+    created(){
+        if(document.cookie){
+          console.log('is update')
+          this.isShowLogin = false;
+        }
+    },
+
 }
 </script>
 
