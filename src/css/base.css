@@ -1,8 +1,10 @@
+*{
+    margin: 0px;
+    padding:0px;
+}
+
 body{
     background-color:rgb(0,0,0,0.05);
     font-family:sans-serif;
 }
 
-h1{
-    margin-top: 5px;
-}

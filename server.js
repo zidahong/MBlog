@@ -1,23 +1,30 @@
 let express = require('express');
 let path = require('path');
 let bodyParser = require('body-parser');
+let cookieParser = require('cookie-parser');
 // import mysqlQuery from './src/js/login';
 let mysqlQuery = require('./src/js/login');
 
 let app = express();
 path.resolve(__dirname, '..')
 
-let urlencodedParser = bodyParser.urlencoded({extended:false});
-
+app.use(bodyParser.urlencoded({extended:false}));
+app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'dist')));
-// app.use(bodyParser.urlencoded({extended:false}));
 // app.use(bodyParser.json());
 
-app.post("/",urlencodedParser,(req,res)=>{
-    // console.log(req.body);
+app.get('/',(req,res)=>{
+    console.log(req.cookie);
+})
+
+app.post("/",(req,res)=>{
     mysqlQuery(req.body.name,req.body.password,(result)=>{
         console.log(result);
-        res.send(result);  
+        if(result){
+            res.cookie(result,"isLogin");
+            res.send(result); 
+        }
+         
     });
 })
  

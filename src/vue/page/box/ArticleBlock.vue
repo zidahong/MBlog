@@ -31,7 +31,7 @@ export default {
   background-color: #fff;
 }
 
-#article-block header{
+/* #article-block header{
 
 }
 
@@ -41,7 +41,7 @@ export default {
 
 #article-block footer{
 
-}
+} */
 
 
 </style>
