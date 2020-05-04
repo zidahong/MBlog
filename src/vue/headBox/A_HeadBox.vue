@@ -1,6 +1,5 @@
 <template>
   <div id="head-box">
-    
     <div id="head-box-contain">
       <logo></logo>
       <div class="head-box-item">
@@ -38,32 +37,5 @@ export default {
 </script>
 
 <style>
-#head-box {
-  background-color: rgb(255, 255, 255);
-  border-top: 3px solid seagreen;
-  height: 50px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: -8px;
-}
-#head-box-contain {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 1100px;
-}
-
-.head-box-item {
-  padding: 0 15px;
-}
-
-.head-box-item a {
-  text-decoration: none;
-  color: black;
-}
-
-.head-box-item a:hover {
-  
-}
+@import url('~@/css/headBox.css');
 </style>

@@ -27,5 +27,4 @@ export default {
     color: seagreen;
 }
 
-
 </style>

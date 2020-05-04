@@ -10,7 +10,7 @@
       </div>
       <div id="login-page-input">
         <div class="input-class-box">
-          <img src="../../img/login/loginUser.png" />
+          <img src="~@/img/login/loginUser.png" />
           <input
             id="login-page-input-user"
             type="text"
@@ -20,7 +20,7 @@
           />
         </div>
         <div class="input-class-box">
-          <img src="../../img/login/loginPassword.png" />
+          <img src="~@/img/login/loginPassword.png" />
           <input
             id="login-page-input-password"
             type="password"
@@ -53,6 +53,8 @@
 </template>
 
 <script>
+let requstLogin = require('@/js/ajax.js')
+
 export default {
   name: "LoginPage",
 
@@ -68,28 +70,14 @@ export default {
       this.$emit("isCloseLoginPage", false);
     },
     isLogin() {
-      const xhr = new XMLHttpRequest();
-      let userName = this.user;
-      let userPassword = this.password;
-      let query = "name=" + userName + "&password=" + userPassword;
-      xhr.open("post", "http://127.0.0.1:3000/", true);
-      xhr.setRequestHeader(
-        "Content-Type",
-        "application/x-www-form-urlencoded; charset=UTF-8"
-      );
-      xhr.send(query);
-      xhr.onload = () => {
-        if (xhr.responseText == "") {
-          return (this.isShow = true);
-        } else {
-           this.$emit("isLoginOk",true);
-        }
-      };
+        requstLogin.isLogin(this.user,this.password,()=>{
+          this.$emit("isLoginOK",true);
+        })
     }
   }
 };
 </script>
 
 <style>
-@import "../../css/loginPage.css";
+@import "~@/css/loginPage.css";
 </style>

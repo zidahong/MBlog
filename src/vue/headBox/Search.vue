@@ -19,10 +19,6 @@ export default {
 <style>
 
 #search-box {
-  
-  /* display: inline-block;
-  text-align: center;
-  padding: 0 15px; */
   display: flex;
   border: rgb(159, 165, 162) solid 1px;
   margin: 0 15px;
@@ -30,15 +26,7 @@ export default {
   padding: 3px;
   border-radius: 50px;
 }
-/* #search-box span{
-  display: inline-block;
-  line-height: 50px;
-} */
-/* #search-box-contain {
-  font-size: 0;
-  border: seagreen solid 2px;
-  border-radius: 30px;
-} */
+
 #search-box input {
   border: 0;
   outline: none;
@@ -46,11 +34,9 @@ export default {
   padding: 0 15px;
 
 }
-
 #search-box button {
-  
   color: transparent;
-  background-image: url("../../../img/page/search.png");
+  background-image: url("~@/img/page/search.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-color: transparent;

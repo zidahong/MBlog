@@ -5,7 +5,7 @@
       <button id="login-box-new">免费注册</button>
     </div>
     <div id="login-box-after" v-else>
-        <img src="../../../img/login/headpic.png">
+        <img src="@/img/login/headpic.png">
         <a href="/">设置</a>
         <a @click="isLoginOut">退出</a>
     </div>
@@ -15,7 +15,7 @@
 </template>
 
 <script>
-import LoginPage from '../../login/LoginPage';
+import LoginPage from '@/vue/headBox/LoginPage';
 export default {
     name:'Login',
     data(){
@@ -54,43 +54,5 @@ export default {
 </script>
 
 <style>
-#login-box{
-    display: flex;
-    justify-content: center;
-}
-
-#login-box-login{
-    border: none;
-    padding: 5px 15px;
-    margin: 0 5px;
-   
-}
-
-#login-box-new{
-    border: none;
-    margin: 0 5px; 
-    padding: 5px 15px;
-    background-color: seagreen;
-    color: #fff;
-}
-#login-box-after{
-  display: flex;
-  justify-content: center;
-}
-#login-box-after img{
-  width: 32px;
-  height: 32px;
-  margin: 0 8px;
-}
-
-#login-box-after a{
-  padding: 5px 0px;
-    margin: 0 5px;
-    text-decoration: none;
-    color: black;
-}
-
-#login-box-after a:hover{
-    color: seagreen;
-}
+@import url('~@/css/login.css');
 </style>

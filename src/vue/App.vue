@@ -2,22 +2,19 @@
 <div id="app">
     <Headbox></Headbox>
     <BackgroundBox></BackgroundBox>
-    <!-- <LoginPage></LoginPage> -->
 </div>
   
 </template>
 
 <script>
-import BackgroundBox from './page/box/BackgroundBox';
-import Headbox from './page/headBox/Headbox';
-// import LoginPage from './login/LoginPage';
+import BackgroundBox from './articleBox/A_BackgroundBox';
+import Headbox from './headBox/A_HeadBox';
 export default {
     name:'App',
     components:{
-        Headbox,
+       Headbox,
        BackgroundBox,
-    //    LoginPage
-    }
+    },
 }
 </script>
 

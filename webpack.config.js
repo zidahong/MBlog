@@ -13,7 +13,7 @@ module.exports = {
         extensions: ['.vue', '.js', '.css'], //增加这一行，还可以自行添加需要的
         alias: {
             'vue$': 'vue/dist/vue.esm.js',
-
+            '@':path.resolve('src'),
         }
     },
     devServer:{
