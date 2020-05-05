@@ -39,7 +39,7 @@ export default {
 #article-block section{
   padding: 2px 8px 5px 8px;
   color: #7f8c8d;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.5);
+  /* border-bottom: 1px solid rgba(0, 0, 0, 0.5); */
 }
 
 #article-block footer{

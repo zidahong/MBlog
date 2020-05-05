@@ -13,12 +13,25 @@ module.exports = {
         extensions: ['.vue', '.js', '.css'], //增加这一行，还可以自行添加需要的
         alias: {
             'vue$': 'vue/dist/vue.esm.js',
-            '@':path.resolve('src'),
+            '@': path.resolve('src'),
         }
     },
-    devServer:{
-        contentBase:'./dist',//服务的根目录
-        inline:true, //实时更新
+    devServer: {
+        contentBase: './dist', //服务的根目录
+        inline: true, //实时更新  
+        proxy: {
+            "/getblock": {
+              target: "http://localhost:3000",
+              pathRewrite: {"^/getblock" : ""},
+              changeOrigin:true
+            },
+            "/login": {
+                target: "http://localhost:3000",
+                pathRewrite: {"^/login" : ""},
+                changeOrigin:true
+              }
+          }
+          
     },
     module: {
         rules: [
@@ -27,7 +40,7 @@ module.exports = {
                 test: /\.(png|jpg|gif)$/,
                 use: [{
                     loader: 'url-loader',
-                    
+
                     options: {
                         limit: 8192,
                         esModule: false,
@@ -48,7 +61,7 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            template:'index.html'
+            template: 'index.html'
         }),
         new VueLoaderPlugin()
     ]
