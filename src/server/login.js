@@ -28,28 +28,6 @@ function mysqlQuery(user, password,callback){
         }
         
     })
-
-    // 插入数据1
-    // let sql = 'insert into userinfo(user,password,email) values("jake","w222","152222@qq.com")'
-    // connect.query(sql,(err,result)=>{
-    //     if(err){
-    //         console.log(err.message);
-    //         return;
-    //     }
-    //     console.log(result);
-    // })
-
-    // 插入数据2
-    // let sql = 'insert into userinfo(user,password,email) values(?,?,?)';
-    // let value = ['tom','w111','14534@qq.com'];
-    // connect.query(sql,value,(err,result)=>{
-    //     if(err){
-    //         console.log(err.message);
-    //         return;
-    //     }
-    //     console.log('成功');
-    // })
-
     //关闭连接
     connect.end();
 }

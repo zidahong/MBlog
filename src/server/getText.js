@@ -1,4 +1,4 @@
-function getText(page,callback){
+function getText(page,nums,callback){
 
 //page 是要获取数据的页数
 
@@ -18,7 +18,7 @@ const connect = mysql.createConnection({
 connect.connect()
 
 page = page-1;//索引从0开始
-const sql = 'select * from article limit '+page+',5';
+const sql = 'select * from article limit '+page+','+nums;
 
 console.log(sql);
 

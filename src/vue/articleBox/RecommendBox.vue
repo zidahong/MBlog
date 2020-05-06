@@ -1,6 +1,6 @@
 <template>
   <div id="recommend-box">
-
+    推荐内容
   </div>
 </template>
 
@@ -11,7 +11,8 @@ export default {
 </script>
 
 <style>
-
-
-
+#recommend-box{
+  background-color: #fff;
+  margin: 5px;
+}
 </style>

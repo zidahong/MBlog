@@ -1,22 +1,20 @@
 <template>
 <div id="background-box">
-    <div id="container">
-        <!-- <info></info> -->
-        <articlebox id="articlebox"></articlebox>
-        <!-- <Recommend id="recommend"></Recommend> -->
-        <!-- <articlecontent></articlecontent> -->
-    </div></div>
-  
+    <div id="background-box-article"><articlebox></articlebox></div>
+    <div id="background-box-recommend"><Recommend></Recommend></div>
+</div>
 </template>
 
 <script>
 import Articlebox from './ArticleBox'
+import Recommend from './RecommendBox';
 
 
 export default {
     name:'BackgroundBox',
     components:{
         Articlebox,
+        Recommend
     }
 }
 </script>
@@ -24,12 +22,16 @@ export default {
 <style>
 #background-box{
     display: flex;
-    justify-content: center;
-    margin-top: 10px;
-}
-#container{
-    width: 1100px;
-    display: flex;
     justify-content: space-between;
+    width: 80%;
+    margin: 0.5%;
+}
+
+#background-box-article{
+  width: 75%;
+}
+
+#background-box-recommend{
+   width: 20%;
 }
 </style>

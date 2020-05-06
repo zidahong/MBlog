@@ -3,13 +3,13 @@
     <div id="article-box-block" v-for="item in text" :key="item.ID">
       <Articleblock>
         <template v-slot:header>
-          <header>{{item.Head}}</header>
+          {{item.Head}}
         </template>
         <template v-slot:section>
-          <section>{{item.Section}}</section>
+         {{item.Section}}
         </template>
         <template v-slot:footer>
-          <footer>{{item.Time}}</footer>
+         {{item.Time}}
         </template>
       </Articleblock>
     </div>
@@ -35,7 +35,7 @@ export default {
     Articleblock,
   },
   created(){
-      getText.ajax('getblock?page=1',(data)=>{
+      getText.ajax('getblock?page=1&nums=5',(data)=>{
         console.log(data);
         this.text=data;
       })
@@ -54,4 +54,5 @@ export default {
 </script>
 
 <style>
+@import url('~@/css/articlebox.css');
 </style>
