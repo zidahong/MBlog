@@ -30,8 +30,8 @@ export default {
 <style>
 #article-block{
   background-color: #fff;
-  border-bottom: 1px solid seagreen;
-  padding: 10%;
+  padding: 5%;
+  margin: 5%;
 }
 
 #article-block a{

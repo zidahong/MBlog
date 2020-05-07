@@ -18,7 +18,7 @@ const connect = mysql.createConnection({
 connect.connect()
 
 page = page-1;//索引从0开始
-const sql = 'select * from article limit '+page+','+nums;
+const sql = 'select ID,Head,Section,Time,Type,Author from article limit '+page+','+nums;
 
 console.log(sql);
 

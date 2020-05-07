@@ -12,6 +12,7 @@ function ajax(query, callback) {
   }
 };
 
+
 //发送登陆时的用户信息
 function isLogin(userName, userPassword, callback) {
   let xhr = new XMLHttpRequest();

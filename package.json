@@ -28,6 +28,7 @@
     "webpack-dev-server": "^3.10.3"
   },
   "dependencies": {
+    "connect-history-api-fallback": "^1.6.0",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "multer": "^1.4.2",

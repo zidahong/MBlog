@@ -1,20 +1,19 @@
 <template>
 <div id="background-box">
     <div id="background-box-article"><articlebox></articlebox></div>
-    <div id="background-box-recommend"><Recommend></Recommend></div>
 </div>
 </template>
 
 <script>
 import Articlebox from './ArticleBox'
-import Recommend from './RecommendBox';
+// import Recommend from './RecommendBox';
 
 
 export default {
     name:'BackgroundBox',
     components:{
         Articlebox,
-        Recommend
+        // Recommend
     }
 }
 </script>
@@ -22,9 +21,8 @@ export default {
 <style>
 #background-box{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 80%;
-    margin: 0.5%;
 }
 
 #background-box-article{

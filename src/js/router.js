@@ -16,6 +16,10 @@ const routes = [
         path:'/index',
         component:backgroundbox,
     },
+    {
+        path:'/blog/:id',
+        component:showArticle,
+    },
     // {
     //     // 笔记
     //     path:'/note',
@@ -40,7 +44,7 @@ const routes = [
 
 const router = new VueRouter({
     routes,
-    mode: 'history',
+    // mode: 'history',
 })
 
 export default router;

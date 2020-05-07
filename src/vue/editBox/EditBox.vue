@@ -60,7 +60,7 @@ export default {
 <style>
 #edit-box {
   background-color: #fff;
-  width: 50%;
+  width: 60%;
   margin: 1%;
   padding: 5%;
   display: flex;

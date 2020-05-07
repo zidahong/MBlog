@@ -4,8 +4,10 @@ let bodyParser = require('body-parser');
 let cookieParser = require('cookie-parser');
 let cors = require('cors')
 let mysqlQuery = require('./src/server/login');
-let getArticle = require('./src/server/getText');
-let submitText = require('./src/server/submitText')
+let getText = require('./src/server/getText');
+let getArticle = require('./src/server/getArticle');
+let submitText = require('./src/server/submitText');
+let history = require('connect-history-api-fallback');
 
 let app = express();
 path.resolve(__dirname, '..')
@@ -14,6 +16,10 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use(bodyParser.json());
+// app.use(history({
+//     index: '/',
+//     verbose: true
+//   }));
 
 //处理跨域问题
 app.all('*', (req, res, next) =>{
@@ -25,9 +31,15 @@ app.all('*', (req, res, next) =>{
     next();
   });
 
-//从数据库获取文章内容
+//从数据库获取文章摘要
 app.get('/getblock',(req,res)=>{
-    getArticle(req.query.page,req.query.nums,(data)=>{
+    getText(req.query.page,req.query.nums,(data)=>{
+        res.send(JSON.stringify(data));
+    })
+})
+//从数据库获取文章内容
+app.get('/getarticle',(req,res)=>{
+    getArticle(req.query.id,(data)=>{
         res.send(JSON.stringify(data));
     })
 })

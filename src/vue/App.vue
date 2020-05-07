@@ -25,24 +25,18 @@
         <!-- 写文章 -->
         <router-link to="/writearticle">写文章</router-link>
       </template>
-      <template v-slot:search>
-        <!-- 搜索栏 -->
+      <!-- <template v-slot:search>
+        搜索栏
         <search></search>
-      </template>
+      </template> -->
       <template v-slot:login>
         <!-- 登陆 -->
         <login></login>
       </template>
     </Headbox>
+    <div id="main">
     <router-view></router-view>
-    <!-- <BackgroundBox>
-      <template v-slot:articlebox>
-        <articlebox></articlebox>
-      </template>
-      <template v-slot:recommend>
-        <recommend></recommend>
-      </template>
-    </BackgroundBox> -->
+    </div>
   </div>
 </template>
 
@@ -74,4 +68,10 @@ export default {
   flex-direction: column;
   align-items: center;
 }
+/* #main{
+  box-sizing: border-box;
+  width: 80%;
+  position: relative;
+  top: 1%;
+} */
 </style>
