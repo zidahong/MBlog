@@ -49,7 +49,9 @@ app.post("/login",(req,res)=>{
     mysqlQuery(req.body.name,req.body.password,(result)=>{
         console.log(result);
         if(result){
-            res.cookie('LoginName',result);
+            if(result!='404'){
+                res.cookie('LoginName',result);
+            }
             res.send(result); 
         }    
     });

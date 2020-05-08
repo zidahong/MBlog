@@ -1,9 +1,9 @@
 <template>
   <div id="article-block">
-      <header><h3><slot name="header"></slot></h3></header>
-      <section><slot name="section"></slot></section>
-      <footer><slot name="footer"></slot></footer>
-    </div>
+      <div id="article-block-header"><h3><slot name="header"></slot></h3></div>
+      <div id="article-block-section"><slot name="section"></slot></div>
+      <div id="article-block-footer"><slot name="footer"></slot></div>
+  </div>
    
 </template>
 
@@ -30,8 +30,18 @@ export default {
 <style>
 #article-block{
   background-color: #fff;
-  padding: 5%;
-  margin: 5%;
+  box-sizing: border-box;
+  border-radius: 3px;
+  padding: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+#article-block:hover{
+  background-color: rgba(22,192,248,0.1);
+  color: #188ae2;
+  transition: 0.1s;
+  transform: scale(1.01);
 }
 
 #article-block a{
@@ -39,21 +49,17 @@ export default {
   color: black;
 }
 
-#article-block header{
-  padding: 8px 8px 0px 8px;
-  
+#article-block-header{
+  margin-bottom: 10px;
+}
+
+#article-block-section{
+  color: #999999;
+  margin-bottom: 10px;
   
 }
 
-#article-block section{
-  padding: 2px 8px 5px 8px;
-  color: #7f8c8d;
-  
-}
-
-#article-block footer{
-  padding: 2px 8px 2px 8px;
-  font-size: 15px;
-  color: #7f8c8d;
+#article-block-footer{
+  color: #999999;
 } 
 </style>

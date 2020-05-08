@@ -1,9 +1,6 @@
 <template>
   <div id="login-page-background">
     <div id="login-page">
-      <!-- <div id="login-page-logo">
-				<img src="../../img/login/logo.png" >
-      </div>-->
       <div id="login-page-head">
         <div>登陆</div>
         <button @click="isClick">X</button>
@@ -70,8 +67,14 @@ export default {
       this.$emit("isCloseLoginPage", false);
     },
     isLogin() {
-        requstLogin.isLogin(this.user,this.password,()=>{
-          this.$emit("isLoginOK",true);
+        this.isShow = false;
+        requstLogin.isLogin(this.user,this.password,(data)=>{
+          if(data=='404'){
+            this.isShow = true;
+          }else{
+            this.$emit("isLoginOk",data);
+          }
+          
         })
     }
   }

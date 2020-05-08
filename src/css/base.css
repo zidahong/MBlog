@@ -4,7 +4,8 @@
 }
 
 body{
-    background-color: rgba(0, 0, 0, 0.1);
+    /* background-image: url('~@/img/background/bg1.png'); */
+    background-color: #2f3640;
     font-family: "Microsoft YaHei" ! important;
 }
 #html{

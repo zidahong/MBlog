@@ -7,7 +7,7 @@
         <template v-slot:footer>{{item.Time}}</template>
       </Articleblock>
     </div>
-    <div id="article-box-next">
+    <div id="article-box-button">
       <button @click="getLastText">上一页</button>
       <button @click="getNextText">下一页</button>
     </div>
@@ -71,22 +71,39 @@ export default {
 
 <style>
 #article-box {
+  background-color: #eeeeee;
+  padding: 20px;
+  border-radius: 3px;
+  box-sizing: border-box;
+  width: 840px;
 }
 
 #article-box-block {
+  box-sizing: border-box;
 }
 
-#article-box-next {
+#article-box-button {
   display: flex;
   justify-content: center;
   background-color: #fff;
-  margin: 0 5%;
-  padding: 1%;
+  box-sizing: border-box;
+  height: 52px;
+  padding: 10px;
+  border-radius: 3px;
 }
 
-#article-box-next button {
-  background-color: #fff;
+#article-box-button button {
+  background-color: #f4f4f5;
+  color: #606266;
   border: none;
-  margin: 0.5%;
+  margin: 0 5px;
+  padding: 0 10px;
+  border-radius: 3px;
+}
+
+#article-box-button button:hover{
+  background-color: #409eff;
+  color: #fff;
+
 }
 </style>

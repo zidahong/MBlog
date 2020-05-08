@@ -17,13 +17,9 @@
         <!-- 留言 -->
         <router-link to="/index">留言</router-link>
       </template>
-      <template v-slot:download>
-        <!-- 下载 -->
-        <router-link to="/index">下载</router-link>
-      </template>
       <template v-slot:writearticle>
         <!-- 写文章 -->
-        <router-link to="/writearticle">写文章</router-link>
+        <router-link to="/writearticle">编辑</router-link>
       </template>
       <!-- <template v-slot:search>
         搜索栏
@@ -36,6 +32,7 @@
     </Headbox>
     <div id="main">
     <router-view></router-view>
+    <myinfo></myinfo>
     </div>
   </div>
 </template>
@@ -47,6 +44,7 @@ import editbox from "./editBox/EditBox";
 import Search from "./headBox/Search";
 import Login from "./headBox/Login";
 import Logo from "./headBox/Logo";
+import myinfo from './articleBox/MyInfo';
 
 
 export default {
@@ -58,6 +56,7 @@ export default {
     Search,
     Login,
     Logo,
+    myinfo,
   }
 };
 </script>
@@ -68,10 +67,7 @@ export default {
   flex-direction: column;
   align-items: center;
 }
-/* #main{
-  box-sizing: border-box;
-  width: 80%;
-  position: relative;
-  top: 1%;
-} */
+#main{
+  display: flex;
+}
 </style>

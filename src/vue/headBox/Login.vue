@@ -32,6 +32,7 @@ export default {
         this.isShow = !this.isShow;
       },
       isLogin(val){
+        if(val)
         this.isShowLogin = !val;
         this.isShow = !val; 
       },

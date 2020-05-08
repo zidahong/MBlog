@@ -1,3 +1,4 @@
+/* 还没登陆的样式 */
 #login-box{
     display: flex;
     justify-content: center;
@@ -7,17 +8,37 @@
     border: none;
     padding: 5px 15px;
     margin: 0 5px;
-   
+    background-color: #eeeeee;
 }
+
+#login-box-login:hover{
+  color: #fff;
+  background-color:#bdc3c7;
+}
+
 
 #login-box-new{
     border: none;
     margin: 0 5px; 
     padding: 5px 15px;
-    background-color: seagreen;
+    background-color: #2f3640;
     color: #fff;
 }
-#login-box-after{
+
+#login-box-new:hover{
+  border: none;
+  margin: 0 5px; 
+  padding: 5px 15px;
+  background-color: #bdc3c7;
+  color: #fff;
+}
+
+
+
+
+/* 登陆后的样式 */
+
+/* #login-box-after{
   display: flex;
   justify-content: center;
 }
@@ -34,6 +55,6 @@
     color: black;
 }
 
-#login-box-after a:hover{
+#login-box-after button:hover{
     color: seagreen;
-}
+} */

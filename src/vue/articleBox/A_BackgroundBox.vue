@@ -6,30 +6,28 @@
 
 <script>
 import Articlebox from './ArticleBox'
-// import Recommend from './RecommendBox';
+
 
 
 export default {
     name:'BackgroundBox',
     components:{
         Articlebox,
-        // Recommend
+        
     }
 }
 </script>
 
 <style>
+
 #background-box{
     display: flex;
     justify-content: center;
-    width: 80%;
+    box-sizing: border-box;
+    padding: 20px;
+    width: 880px;
 }
 
-#background-box-article{
-  width: 75%;
-}
 
-#background-box-recommend{
-   width: 20%;
-}
+
 </style>

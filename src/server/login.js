@@ -24,7 +24,7 @@ function mysqlQuery(user, password,callback){
             callback(result[0].user);
         }else{
             // 查不到结果返回undefined
-            callback(undefined);
+            callback('404');
         }
         
     })
