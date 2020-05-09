@@ -30,6 +30,24 @@ function isLogin(userName, userPassword, callback) {
   };
 }
 
+//发送创建用户的信息
+function isCreate(userName, userPassword, userEmail,callback) {
+  let xhr = new XMLHttpRequest();
+  xhr.withCredentials = true; //允许跨域请求
+
+  let query = "name=" + userName + "&password=" + userPassword + "&email=" + userEmail;
+  xhr.open("post", "http://127.0.0.1:3000/create", true);
+  xhr.setRequestHeader(
+    "Content-Type",
+    "application/x-www-form-urlencoded; charset=UTF-8"
+  );
+  xhr.send(query);
+  xhr.onload = function () {
+    callback(xhr.responseText);
+  };
+}
+
+//添加文章
 function submitText(text,callback){
   let xhr = new XMLHttpRequest();
   xhr.withCredentials = true; //允许跨域请求
@@ -61,5 +79,6 @@ function submitText(text,callback){
 module.exports = {
   ajax,
   isLogin,
+  isCreate,
   submitText
 };

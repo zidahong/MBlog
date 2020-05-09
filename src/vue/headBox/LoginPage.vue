@@ -29,7 +29,8 @@
 
         <div id="login-page-input-check">
           <div id="check-input-tip">
-            <span v-show="isShow">用户或密码错误！</span>
+            <span v-if="isShow">用户或密码错误！</span>
+            <span v-if="isSerError">登陆失败！</span>
           </div>
           <div id="check-input-remenberPassword">
             <input type="checkbox" name="postCheck" id="check" />
@@ -50,7 +51,7 @@
 </template>
 
 <script>
-let requstLogin = require('@/js/ajax.js')
+let requstLogin = require("@/js/ajax.js");
 
 export default {
   name: "LoginPage",
@@ -59,7 +60,8 @@ export default {
     return {
       user: "",
       password: "",
-      isShow: false
+      isShow: false,
+      isSerError: false
     };
   },
   methods: {
@@ -67,15 +69,16 @@ export default {
       this.$emit("isCloseLoginPage", false);
     },
     isLogin() {
-        this.isShow = false;
-        requstLogin.isLogin(this.user,this.password,(data)=>{
-          if(data=='404'){
-            this.isShow = true;
-          }else{
-            this.$emit("isLoginOk",data);
-          }
-          
-        })
+      this.isShow = false;
+      requstLogin.isLogin(this.user, this.password, data => {
+        if (data == "404") {
+          this.isShow = true;
+        } else if (data == "") {
+          this.isSerError == true;
+        } else {
+          this.$emit("isLoginOk", data);
+        }
+      });
     }
   }
 };

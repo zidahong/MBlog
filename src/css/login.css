@@ -37,24 +37,29 @@
 
 
 /* 登陆后的样式 */
-
-/* #login-box-after{
+#login-box-after{
   display: flex;
   justify-content: center;
+  align-items: center;
 }
+
 #login-box-after img{
   width: 32px;
   height: 32px;
   margin: 0 8px;
 }
 
-#login-box-after a{
-  padding: 5px 0px;
+#login-box-after button{
+  padding: 5px 10px;
     margin: 0 5px;
     text-decoration: none;
-    color: black;
+    color: #fff;
+    border: none;
+    background-color: #2f3640;
+    border-radius: 3px;
 }
 
 #login-box-after button:hover{
-    color: seagreen;
-} */
+   
+    background-color: #bdc3c7;
+} 

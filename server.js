@@ -4,6 +4,7 @@ let bodyParser = require('body-parser');
 let cookieParser = require('cookie-parser');
 let cors = require('cors')
 let mysqlQuery = require('./src/server/login');
+let mysqlCreate = require('./src/server/create');
 let getText = require('./src/server/getText');
 let getArticle = require('./src/server/getArticle');
 let submitText = require('./src/server/submitText');
@@ -54,6 +55,20 @@ app.post("/login",(req,res)=>{
             }
             res.send(result); 
         }    
+    });
+})
+
+//获取注册请求
+app.post("/create",(req,res)=>{
+    mysqlCreate(req.body.name,req.body.password,req.body.email,(result)=>{
+        if(result=='200'){
+            //向客户端发送200，表示注册成功
+            res.send(result); 
+        }else{
+            //向客户端发送404表示注册失败
+            console.log(result);
+            res.send('404')
+        }   
     });
 })
 

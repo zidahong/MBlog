@@ -1,4 +1,4 @@
-#login-page-background{
+#create-page-background{
 	display: flex;
 	justify-content: center;
 	background-color:rgba(0,0,0,0.2);
@@ -18,7 +18,7 @@
 	}
 }
 
-#login-page {
+#create-page {
 	background-color: #ffffff;
 	border-radius: 3px;
 	box-sizing: border-box;
@@ -35,7 +35,7 @@
 
 }
 
-#login-page-head {
+#create-page-head {
 	display: flex;
 	justify-content: space-between;
 	align-items:flex-end;
@@ -44,18 +44,18 @@
 	font-size: 25px;
 }
 
-#login-page-head button{
+#create-page-head button{
 	display: block;
 	background-color: transparent;
 	border: 0;
 	font-size: 25px;
 }
 
-#login-page-input{
+#create-page-input{
 	padding: 30px 30px 0 30px;
 }
 
-.input-class-box{
+.create-page-input-class-box{
 	height: 40px;
 	border: solid 2px #2f3640;
 	border-radius: 20px;
@@ -64,13 +64,13 @@
 }
 
 
-.input-class-box img{
+.create-page-input-class-box img{
 	height: 30px;
 	width: 30px;
 	margin: 5px;
 }
 
-.input-class {
+.create-page-input-class {
 	height: 40px;
 	border: 0;
 	font-size: 18px;
@@ -78,27 +78,27 @@
 	vertical-align: top;
 }
 
-#login-page-input-check{
+#create-page-input-check{
 	width: 100%;
 	display: flex;
 	margin-bottom: 8px;
 }
+#create-page-input-check div{
+    width: 100%;
+}
 
-#check-input-tip{
+#create-page-check-input-tip{
 	width: 50%;
 	text-align: left;
 	color: red;
 }
-#check-input-remenberPassword{
-	width: 50%;
-	text-align: right;
-}
 
-#login-page-input-button{
+
+#create-page-input-button{
 	box-sizing: border-box;
 	padding: 20px 0;
 }
-.input-button {
+.create-page-input-button {
 	
 	box-sizing: border-box;
 	width: 100%;
@@ -111,22 +111,7 @@
 	font-size: 18px;
 }
 
-.input-button:hover{
+.create-page-input-button:hover{
 	background-color: #bdc3c7;
 	color: #ffffff;
-}
-
-#login-page-foot {
-	width: 100%;
-	text-align: center;
-}
-
-#login-page-foot a {
-	text-decoration: none;
-	font-size: 14px;
-	color:black;
-}
-
-#login-page-foot a:visited{
-	color: black;
 }
