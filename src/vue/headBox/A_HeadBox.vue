@@ -5,11 +5,9 @@
       <slot name="logo"></slot>
       <div id="head-box-item">
         <slot name="index"></slot>
-        <slot name="note"></slot>
-        <slot name="tellme"></slot>
+        <slot name="comment"></slot>
         <slot name="writearticle"></slot>
       </div>
-      <slot name="search"></slot>
       <slot name="login"></slot>
     </div>
   </div>

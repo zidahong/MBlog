@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import backgroundbox from '@/vue/articleBox/A_BackgroundBox';
 import writeArticle from '@/vue/editBox/EditBox';
 import showArticle from '@/vue/articleBox/ShowArticleBox'
+import comment from '@/vue/comment/Comment'
 
 Vue.use(VueRouter);
 
@@ -25,11 +26,11 @@ const routes = [
     //     path:'/note',
     //     component:backgroundbox
     // },
-    // {
-    //     // 留言
-    //     path:'/index',
-    //     component:backgroundbox
-    // },
+    {
+        // 留言
+        path:'/comment',
+        component:comment
+    },
     // {
     //     // 下载
     //     path:'/download',

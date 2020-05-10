@@ -9,7 +9,7 @@
     <!-- 显示登录后 -->
     <div id="login-box-after" v-else>
       <img src="@/img/login/headpic.png" />
-      <!-- <div id="login-box-after-info">欢迎用户：{{username}}</div> -->
+      <div id="login-box-after-info">欢迎用户：{{username}}</div>
       <button>设置</button>
       <button @click="isLoginOut">退出</button>
     </div>
@@ -21,6 +21,7 @@
 <script>
 import LoginPage from "@/vue/headBox/LoginPage";
 import CreatePage from "@/vue/headBox/CreateAcount";
+const tool = require('@/js/tool.js');
 export default {
   name: "Login",
   data() {
@@ -32,6 +33,7 @@ export default {
       //显示注册用户页面
        isShowCreatePage: false,
        //用户名
+       username: '',
     };
   },
   components: {
@@ -39,12 +41,19 @@ export default {
     CreatePage
   },
   created() {
-    // 检测是否已经登陆
+    // 检测是否已经登陆,更新登陆用户名
     if (document.cookie) {
       this.isShowLogin = false;
+      this.username = tool.cookieToObj().LoginName;
     }
   },
-
+  updated(){
+    // 当换用户时不用刷新页面也能显示用户名
+     if (document.cookie) {
+      this.isShowLogin = false;
+      this.username = tool.cookieToObj().LoginName;
+    }
+  },
   methods: {
     //显示登陆页
     isLogin() {
@@ -62,13 +71,13 @@ export default {
     isLoginOk(val) {
       if (val) this.isShowLogin = !val;
       this.isShowLoginPage = !val;
-      this.username = val;
     },
 
     //关闭注册页面
      isCloseCreatePage(val) {
       this.isShowCreatePage = val;
     },
+
     //接收注册页组件的组成完成信号,显示登陆页面，关闭注册页面
     isCreateOk(val) {
       if (val) this.isShowLoginPage = val;
@@ -81,7 +90,7 @@ export default {
         document.cookie.match(/[^ =;]+(?=\=)/g)[0] +
         "=0;expires=" +
         new Date(0).toUTCString();
-      location.reload();
+       location.reload();
     }
   }
 };

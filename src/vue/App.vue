@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <!-- 网页头 -->
     <Headbox>
       <template v-slot:logo>
         <!-- logo -->
@@ -9,27 +10,20 @@
         <!-- 首页 -->
         <router-link to="/index">首页</router-link>
       </template>
-      <template v-slot:note>
-        <!-- 笔记 -->
-        <router-link to="/index">笔记</router-link>
-      </template>
-      <template v-slot:tellme>
+      <template v-slot:comment>
         <!-- 留言 -->
-        <router-link to="/index">留言</router-link>
+        <router-link to="/comment">留言</router-link>
       </template>
       <template v-slot:writearticle>
         <!-- 写文章 -->
         <router-link to="/writearticle">编辑</router-link>
       </template>
-      <!-- <template v-slot:search>
-        搜索栏
-        <search></search>
-      </template> -->
       <template v-slot:login>
         <!-- 登陆 -->
         <login></login>
       </template>
     </Headbox>
+    <!-- 网页主体 -->
     <div id="main">
     <router-view></router-view>
     <myinfo></myinfo>

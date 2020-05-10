@@ -8,11 +8,11 @@
         <div id="info-contain-info">职业：学生</div>
         <div id="info-contain-connect">email：847866091@qq.com</div>
       </div>
-      <div id="rec-box">
+      <!-- <div id="rec-box">
         <div id="rec-box-title">
           <h3>分类</h3>
         </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </template>

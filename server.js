@@ -3,12 +3,8 @@ let path = require('path');
 let bodyParser = require('body-parser');
 let cookieParser = require('cookie-parser');
 let cors = require('cors')
-let mysqlQuery = require('./src/server/login');
-let mysqlCreate = require('./src/server/create');
-let getText = require('./src/server/getText');
-let getArticle = require('./src/server/getArticle');
-let submitText = require('./src/server/submitText');
-let history = require('connect-history-api-fallback');
+
+let mysqlQuery = require('./src/server/handle.js');
 
 let app = express();
 path.resolve(__dirname, '..')
@@ -34,20 +30,20 @@ app.all('*', (req, res, next) =>{
 
 //从数据库获取文章摘要
 app.get('/getblock',(req,res)=>{
-    getText(req.query.page,req.query.nums,(data)=>{
+    mysqlQuery.getArticleBrief(req.query.page,req.query.nums,(data)=>{
         res.send(JSON.stringify(data));
     })
 })
 //从数据库获取文章内容
 app.get('/getarticle',(req,res)=>{
-    getArticle(req.query.id,(data)=>{
+    mysqlQuery.getArticle(req.query.id,(data)=>{
         res.send(JSON.stringify(data));
     })
 })
 
 //获取登陆请求
 app.post("/login",(req,res)=>{
-    mysqlQuery(req.body.name,req.body.password,(result)=>{
+    mysqlQuery.login(req.body.name,req.body.password,(result)=>{
         console.log(result);
         if(result){
             if(result!='404'){
@@ -60,7 +56,7 @@ app.post("/login",(req,res)=>{
 
 //获取注册请求
 app.post("/create",(req,res)=>{
-    mysqlCreate(req.body.name,req.body.password,req.body.email,(result)=>{
+    mysqlQuery.createAcount(req.body.name,req.body.password,req.body.email,(result)=>{
         if(result=='200'){
             //向客户端发送200，表示注册成功
             res.send(result); 
@@ -74,8 +70,24 @@ app.post("/create",(req,res)=>{
 
 //接收文章数据
 app.post("/submittext",(req,res)=>{
-    // console.log(req.body)
-    submitText(req.body,(result)=>{
+    mysqlQuery.submitArticle(req.body,(result)=>{
+        if(result){
+            res.send(result); 
+        }  
+    });
+})
+
+//获取评论请求
+app.get('/comment',(req,res)=>{
+    mysqlQuery.getComment(req.query.id,(data)=>{
+        console.log(req.query,data);
+        res.send(JSON.stringify(data));
+    })
+});
+
+//添加评论
+app.post("/submitcomment",(req,res)=>{
+    mysqlQuery.submitComment(req.body,(result)=>{
         console.log(result);
         if(result){
             res.send(result); 

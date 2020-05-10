@@ -51,12 +51,11 @@ function isCreate(userName, userPassword, userEmail,callback) {
 function submitText(text,callback){
   let xhr = new XMLHttpRequest();
   xhr.withCredentials = true; //允许跨域请求
-  xhr.open('post',"http://127.0.0.1:3000/submittext",true);
+  xhr.open('post',"http://127.0.0.1:3000/submittext");
   xhr.setRequestHeader(
     "Content-Type",
     "application/x-www-form-urlencoded; charset=UTF-8"
   );
-  // text.Head,text.Section,text.Ariticle,text.Time,text.Type,text.Author
  
   let head = "Head=" + text.Head +"&";
   let section = "Section=" + text.Section +"&";
@@ -72,13 +71,36 @@ function submitText(text,callback){
   xhr.onload = function(){
     callback(xhr.responseText);
   }
-  
 }
+
+//添加留言
+function submitComment(text,callback){
+  let xhr = new XMLHttpRequest();
+  xhr.withCredentials = true;
+  xhr.open('post',"http://127.0.0.1:3000/submitcomment");
+  xhr.setRequestHeader(
+    "Content-Type",
+    "application/x-www-form-urlencoded; charset=UTF-8"
+  );
+
+  let time = "time=" + text.time +"&";
+  let type = "author=" + text.username +"&";
+  let author = "comment=" + text.comment;
+  
+  let query = time + type +author;
+
+  xhr.send(query);
+  xhr.onload = function(){
+    callback(xhr.responseText);
+  }
+}
+
 
 
 module.exports = {
   ajax,
   isLogin,
   isCreate,
-  submitText
+  submitText,
+  submitComment
 };
