@@ -1,9 +1,10 @@
 //发送给请求，返回JSON对象
 function ajax(query, callback) {
+  const http = require('./httpconfig');
+  
   let xhr = new XMLHttpRequest();
-
   xhr.withCredentials = true; //允许跨域请求
-  xhr.open('get', 'http://127.0.0.1:3000/' + query);
+  xhr.open('get', http.url + query);
 
   xhr.send();
   xhr.onload = function () {
@@ -15,11 +16,13 @@ function ajax(query, callback) {
 
 //发送登陆时的用户信息
 function isLogin(userName, userPassword, callback) {
+
+  const http = require('./httpconfig');
   let xhr = new XMLHttpRequest();
   xhr.withCredentials = true; //允许跨域请求
 
   let query = "name=" + userName + "&password=" + userPassword;
-  xhr.open("post", "http://127.0.0.1:3000/login", true);
+  xhr.open("post", http.url+"login", true);
   xhr.setRequestHeader(
     "Content-Type",
     "application/x-www-form-urlencoded; charset=UTF-8"
@@ -32,11 +35,12 @@ function isLogin(userName, userPassword, callback) {
 
 //发送创建用户的信息
 function isCreate(userName, userPassword, userEmail,callback) {
+  const http = require('./httpconfig');
   let xhr = new XMLHttpRequest();
   xhr.withCredentials = true; //允许跨域请求
 
   let query = "name=" + userName + "&password=" + userPassword + "&email=" + userEmail;
-  xhr.open("post", "http://127.0.0.1:3000/create", true);
+  xhr.open("post", http.url + "create", true);
   xhr.setRequestHeader(
     "Content-Type",
     "application/x-www-form-urlencoded; charset=UTF-8"
@@ -49,9 +53,10 @@ function isCreate(userName, userPassword, userEmail,callback) {
 
 //添加文章
 function submitText(text,callback){
+  const http = require('./httpconfig');
   let xhr = new XMLHttpRequest();
   xhr.withCredentials = true; //允许跨域请求
-  xhr.open('post',"http://127.0.0.1:3000/submittext");
+  xhr.open('post',http.url + "submittext");
   xhr.setRequestHeader(
     "Content-Type",
     "application/x-www-form-urlencoded; charset=UTF-8"
@@ -75,9 +80,10 @@ function submitText(text,callback){
 
 //添加留言
 function submitComment(text,callback){
+  const http = require('./httpconfig');
   let xhr = new XMLHttpRequest();
   xhr.withCredentials = true;
-  xhr.open('post',"http://127.0.0.1:3000/submitcomment");
+  xhr.open('post',http.url+"submitcomment");
   xhr.setRequestHeader(
     "Content-Type",
     "application/x-www-form-urlencoded; charset=UTF-8"

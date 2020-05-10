@@ -4,7 +4,7 @@ function login(user, password,callback){
     const config = require('./serConfig');
     const mysql = require('mysql');
     //创建一个mysql连接connect
-    const connect = mysql.createConnection(config);
+    const connect = mysql.createConnection(config.mysqlConfig);
     //建立连接
     connect.connect();
     //构造查询语句
@@ -37,7 +37,7 @@ function createAcount(user, password,email,callback){
     //mysql的配置
     const config = require('./serConfig');
 
-    const connect = mysql.createConnection(config);
+    const connect = mysql.createConnection(config.mysqlConfig);
     connect.connect();
 
     //插入用户名，密码，邮箱
@@ -67,7 +67,7 @@ function getArticleBrief(page,nums,callback){
 const mysql = require('mysql');
 const config = require('./serConfig');
 
-const connect = mysql.createConnection(config)
+const connect = mysql.createConnection(config.mysqlConfig)
 
 //文章数据存在nodeinfo数据库，article表中
 // ID Head Section Article
@@ -100,7 +100,7 @@ function getArticle(ID, callback) {
     //使用mysql模块
     const mysql = require('mysql');
     const config = require('./serConfig');
-    const connect = mysql.createConnection(config)
+    const connect = mysql.createConnection(config.mysqlConfig)
 
     //文章数据存在nodeinfo数据库，article表中
     // ID Head Section Article
@@ -126,7 +126,7 @@ function submitArticle(text,callback){
 
     const mysql = require('mysql');
     const config = require('./serConfig');
-    const connect = mysql.createConnection(config);
+    const connect = mysql.createConnection(config.mysqlConfig);
 
     connect.connect();
     console.log('数据库连接成功');
@@ -158,7 +158,7 @@ function getComment(id,callback){
     const mysql = require('mysql');
     const config = require('./serConfig');
 
-    const connect = mysql.createConnection(config);
+    const connect = mysql.createConnection(config.mysqlConfig);
     connect.connect();
 
     const sql = 'select * from comment limit ' + id + ',10';
@@ -182,7 +182,7 @@ function submitComment(text,callback){
     const mysql = require('mysql');
     const config = require('./serConfig');
 
-    const connect = mysql.createConnection(config);
+    const connect = mysql.createConnection(config.mysqlConfig);
 
     connect.connect();
     console.log('数据库连接成功');

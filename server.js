@@ -2,25 +2,22 @@ let express = require('express');
 let path = require('path');
 let bodyParser = require('body-parser');
 let cookieParser = require('cookie-parser');
-let cors = require('cors')
+
 
 let mysqlQuery = require('./src/server/handle.js');
+let serConfig = require('./src/server/serConfig.js');
 
 let app = express();
 path.resolve(__dirname, '..')
-app.use(cors({origin:'http://localhost:8080',optionsSuccessStatus:200}));
 app.use(bodyParser.urlencoded({extended:false}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use(bodyParser.json());
-// app.use(history({
-//     index: '/',
-//     verbose: true
-//   }));
+
 
 //处理跨域问题
 app.all('*', (req, res, next) =>{
-    res.header('Access-Control-Allow-Origin', 'http://127.0.0.1:8080');
+    res.header('Access-Control-Allow-Origin', serConfig.httpConfig.domain);
     res.header('Access-Control-Allow-Credentials', 'true');
     res.header('Access-Control-Allow-Headers', 'Content-Type');
     res.header('Access-Control-Allow-Methods', '*');
@@ -96,6 +93,6 @@ app.post("/submitcomment",(req,res)=>{
     });
 })
  
-app.listen(3000, function () {
+app.listen(serConfig.httpConfig.port, function () {
     console.log('服务器启动中');
 })
