@@ -2,9 +2,15 @@
   <div id="article-box">
     <div id="article-box-block" v-for="item in text" :key="item.ID" @click="showArticle(item)">
       <Articleblock @click="showArticle">
+<<<<<<< HEAD
         <template v-slot:header>{{item.title}}</template>
         <!-- <template v-slot:section>{{item.Section}}</template> -->
         <template v-slot:footer>{{item.time}}</template>
+=======
+        <template v-slot:header>{{item.Head}}</template>
+        <template v-slot:section>{{item.Section}}</template>
+        <template v-slot:footer>{{item.Time}}</template>
+>>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
       </Articleblock>
     </div>
     <div id="article-box-button">
@@ -62,7 +68,11 @@ export default {
     },
     showArticle(item) {
       this.$router.push({
+<<<<<<< HEAD
         path: "/blog/"+item.id,
+=======
+        path: "/blog/"+item.ID,
+>>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
       });
     }
   }

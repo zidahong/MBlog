@@ -8,7 +8,12 @@
         <textarea placeholder="在这里留下你的评论~" v-model="commentData.comment"></textarea>
         <button @click="submitComment">提交</button>
       </div>
+<<<<<<< HEAD
       <div v-for="item in comments" :key="item.id" class="comment-box-contain-class">
+=======
+      <div v-for="item in comments" :key="item.ID" class="comment-box-contain-class">
+        <div class="comment-box-class-id">#{{item.ID}}楼</div>
+>>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
         <div class="comment-box-class-author">用户：{{item.author}}</div>
         <div class="comment-box-class-comment">评论：{{item.comment}}</div>
         <div class="comment-box-class-time">时间：{{item.time}}</div>
@@ -35,6 +40,7 @@ export default {
       commentData: {
         username: "",
         comment: "",
+<<<<<<< HEAD
         time: "",
         textId:""
       }
@@ -44,22 +50,43 @@ export default {
   created() {
     this.commentData.textId = this.textid;
     ajax.ajax("comment?id=0&textid="+this.commentData.textId, data => {
+=======
+        time: ""
+      }
+    };
+  },
+  created() {
+    ajax.ajax("comment?id=0", data => {
+>>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
       this.comments = data;
     });
   },
   methods: {
     submitComment() {
+<<<<<<< HEAD
       if (this.$store.state.user) {
+=======
+      if (document.cookie) {
+>>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
         if (this.commentData.comment == "") {
           alert("请输入内容后再提交评论哦");
         } else {
           //获取用户名
+<<<<<<< HEAD
           this.commentData.username =this.$store.state.user;
           //获取评论时间
           this.commentData.time = tool.getTime();
           this.commentData.textId = this.textid;
        
           let text = this.commentData;
+=======
+          this.commentData.username = tool.cookieToObj().LoginName;
+          //获取评论时间
+          this.commentData.time = tool.getTime();
+
+          let text = this.commentData;
+
+>>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
           ajax.submitComment(text, data => {
             console.log(data);
             alert("评论成功");
@@ -77,7 +104,11 @@ export default {
       } else {
         this.page = this.page + 1;
         let start = (this.page - 1) * 10;
+<<<<<<< HEAD
         let sql = "comment?id=" + start +"&textid="+this.commentData.textId;
+=======
+        let sql = "comment?id=" + start;
+>>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
         ajax.ajax(sql, data => {
           this.comments = data;
         });
@@ -90,7 +121,11 @@ export default {
       } else {
         this.page = this.page - 1;
         let start = (this.page - 1) * 10;
+<<<<<<< HEAD
         let sql = "comment?id=" + start+"&textid="+this.commentData.textId;
+=======
+        let sql = "comment?id=" + start;
+>>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
         ajax.ajax(sql, data => {
           this.comments = data;
         });
@@ -106,7 +141,11 @@ export default {
   justify-content: center;
   width: 880px;
   box-sizing: border-box;
+<<<<<<< HEAD
   padding: 0 20px 20px 20px;
+=======
+  padding: 20px;
+>>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
 }
 
 #comment-box-contain {
@@ -138,7 +177,10 @@ export default {
   width: 100%;
   box-sizing: border-box;
   border-radius: 3px;
+<<<<<<< HEAD
   border: solid 1px #eeeeee;
+=======
+>>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
 }
 
 #comment-box-contain-input button {

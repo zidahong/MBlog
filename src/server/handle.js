@@ -61,7 +61,11 @@ function createAcount(user, password,email,callback){
 
 function getArticleBrief(page,nums,callback){
 
+<<<<<<< HEAD
     //获取讨论，包括文章id，head,time，author,text
+=======
+    //获取文章简介，包括文章ID，head,section，time，type，author
+>>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
 
 //使用mysql模块
 const mysql = require('mysql');
@@ -75,7 +79,11 @@ const connect = mysql.createConnection(config.mysqlConfig)
 connect.connect()
 
 page = page-1;//索引从0开始
+<<<<<<< HEAD
 const sql = 'select id,title,text,time,user from text limit '+page+','+nums;
+=======
+const sql = 'select ID,Head,Section,Time,Type,Author from article limit '+page+','+nums;
+>>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
 
 console.log(sql);
 
@@ -107,9 +115,14 @@ function getArticle(ID, callback) {
 
     connect.connect()
 
+<<<<<<< HEAD
     const sql = 'select * from text where id=' + ID;
 
     console.log(sql);
+=======
+    const sql = 'select * from article where ID=' + ID;
+
+>>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
     connect.query(sql, (err, data) => {
         if (err) {
             callback(err.message);
@@ -121,7 +134,11 @@ function getArticle(ID, callback) {
 }
 
 
+<<<<<<< HEAD
 function submitArticle(discuss,callback){
+=======
+function submitArticle(text,callback){
+>>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
 
     // 添加文章
 
@@ -131,12 +148,21 @@ function submitArticle(discuss,callback){
 
     connect.connect();
     console.log('数据库连接成功');
+<<<<<<< HEAD
     
     
     
     //插入数据
     let sql = 'insert into text(title,text,time,user) values(?,?,?,?)';
     let values = [discuss.title,discuss.text,discuss.time,discuss.user];
+=======
+    console.log(text);
+    
+    
+    //插入数据
+    let sql = 'insert into article(Head,Section,Article,Time,Type,Author) values(?,?,?,?,?,?)';
+    let values = [text.Head,text.Section,text.Article,text.Time,text.Type,text.Author];
+>>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
 
     connect.query(sql,values,(err,result)=>{
         if(err){
@@ -151,7 +177,11 @@ function submitArticle(discuss,callback){
 }
 
 
+<<<<<<< HEAD
 function getComment(id,textid,callback){
+=======
+function getComment(id,callback){
+>>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
 
     //获取用户评论
     //该函数查询输入ID后的10条评论
@@ -162,7 +192,11 @@ function getComment(id,textid,callback){
     const connect = mysql.createConnection(config.mysqlConfig);
     connect.connect();
 
+<<<<<<< HEAD
     const sql = 'select * from comment where textid ='+textid+' limit ' + id + ',10';
+=======
+    const sql = 'select * from comment limit ' + id + ',10';
+>>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
 
     connect.query(sql,(err,data)=>{
         if(err){
@@ -190,8 +224,13 @@ function submitComment(text,callback){
     console.log(text);    
     
     //插入数据
+<<<<<<< HEAD
     let sql = 'insert into comment(author,comment,time,textid) values(?,?,?,?)';
     let values = [text.author,text.comment,text.time,text.textid];
+=======
+    let sql = 'insert into comment(author,comment,time) values(?,?,?)';
+    let values = [text.author,text.comment,text.time];
+>>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
 
     connect.query(sql,values,(err,result)=>{
         if(err){

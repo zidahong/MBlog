@@ -21,6 +21,24 @@ const routes = [
         path:'/blog/:id',
         component:showArticle,
     },
+<<<<<<< HEAD
+=======
+    // {
+    //     // 笔记
+    //     path:'/note',
+    //     component:backgroundbox
+    // },
+    {
+        // 留言
+        path:'/comment',
+        component:comment
+    },
+    // {
+    //     // 下载
+    //     path:'/download',
+    //     component:backgroundbox
+    // },
+>>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
     {
         //写文章
         path:'/writearticle',

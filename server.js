@@ -76,7 +76,11 @@ app.post("/submittext",(req,res)=>{
 
 //获取评论请求
 app.get('/comment',(req,res)=>{
+<<<<<<< HEAD
     mysqlQuery.getComment(req.query.id,req.query.textid,(data)=>{
+=======
+    mysqlQuery.getComment(req.query.id,(data)=>{
+>>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
         console.log(req.query,data);
         res.send(JSON.stringify(data));
     })

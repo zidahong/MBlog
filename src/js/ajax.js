@@ -52,7 +52,11 @@ function isCreate(userName, userPassword, userEmail,callback) {
 }
 
 //添加文章
+<<<<<<< HEAD
 function submitText(discuss,callback){
+=======
+function submitText(text,callback){
+>>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
   const http = require('./httpconfig');
   let xhr = new XMLHttpRequest();
   xhr.withCredentials = true; //允许跨域请求
@@ -62,12 +66,23 @@ function submitText(discuss,callback){
     "application/x-www-form-urlencoded; charset=UTF-8"
   );
  
+<<<<<<< HEAD
   let title = "title=" + discuss.title +"&";
   let text = "text=" + discuss.text +"&";
   let time = "time=" + discuss.time +"&";
   let user = "user=" + discuss.user;
 
   let query = title+text+time+user;
+=======
+  let head = "Head=" + text.Head +"&";
+  let section = "Section=" + text.Section +"&";
+  let article = "Article=" + text.Article +"&";
+  let time = "Time=" + text.Time +"&";
+  let type = "Type=" + text.Type +"&";
+  let author = "Author=" + text.Author;
+
+  let query = head + section +article+time+type+author;
+>>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
 
   xhr.send(query);
 
@@ -89,10 +104,16 @@ function submitComment(text,callback){
 
   let time = "time=" + text.time +"&";
   let type = "author=" + text.username +"&";
+<<<<<<< HEAD
   let textid = "textid=" + text.textId +"&";
   let author = "comment=" + text.comment;
 
   let query = time + type+textid +author;
+=======
+  let author = "comment=" + text.comment;
+  
+  let query = time + type +author;
+>>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
 
   xhr.send(query);
   xhr.onload = function(){

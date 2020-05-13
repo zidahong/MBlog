@@ -3,10 +3,18 @@
     <div id="login-page">
       <div id="login-page-head">
         <div>登陆</div>
+<<<<<<< HEAD
         <button @click="isClose">X</button>
       </div>
       <div id="login-page-input">
         <div class="input-class-box">
+=======
+        <button @click="isClick">X</button>
+      </div>
+      <div id="login-page-input">
+        <div class="input-class-box">
+          <img src="~@/img/login/loginUser.png" />
+>>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
           <input
             id="login-page-input-user"
             type="text"
@@ -16,7 +24,11 @@
           />
         </div>
         <div class="input-class-box">
+<<<<<<< HEAD
        
+=======
+          <img src="~@/img/login/loginPassword.png" />
+>>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
           <input
             id="login-page-input-password"
             type="password"
@@ -29,7 +41,11 @@
         <div id="login-page-input-check">
           <div id="check-input-tip">
             <span v-if="isShow">用户或密码错误！</span>
+<<<<<<< HEAD
             <!-- <span v-if="isSerError">登陆失败！</span> -->
+=======
+            <span v-if="isSerError">登陆失败！</span>
+>>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
           </div>
           <div id="check-input-remenberPassword">
             <input type="checkbox" name="postCheck" id="check" />
@@ -60,6 +76,7 @@ export default {
       user: "",
       password: "",
       isShow: false,
+<<<<<<< HEAD
    
     };
   },
@@ -75,6 +92,24 @@ export default {
         } else {
           this.$store.commit("login", data);
           this.$store.commit("closeLoginPage");
+=======
+      isSerError: false
+    };
+  },
+  methods: {
+    isClick() {
+      this.$emit("isCloseLoginPage", false);
+    },
+    isLogin() {
+      this.isShow = false;
+      requstLogin.isLogin(this.user, this.password, data => {
+        if (data == "404") {
+          this.isShow = true;
+        } else if (data == "") {
+          this.isSerError == true;
+        } else {
+          this.$emit("isLoginOk", data);
+>>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
         }
       });
     }
