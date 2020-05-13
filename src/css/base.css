@@ -1,0 +1,15 @@
+*{
+    margin: 0px;
+    padding:0px;
+}
+
+body{
+    background-color: #2f3640;
+    font-family: "Microsoft YaHei" ! important;
+}
+#html{
+    min-height: 101%;
+    min-width: 101%;
+}
+
+

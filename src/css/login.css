@@ -1,0 +1,65 @@
+/* 还没登陆的样式 */
+#login-box{
+    display: flex;
+    justify-content: center;
+}
+
+#login-box-login{
+    border: none;
+    padding: 5px 15px;
+    margin: 0 5px;
+    background-color: #eeeeee;
+}
+
+#login-box-login:hover{
+  color: #fff;
+  background-color:#bdc3c7;
+}
+
+
+#login-box-new{
+    border: none;
+    margin: 0 5px; 
+    padding: 5px 15px;
+    background-color: #2f3640;
+    color: #fff;
+}
+
+#login-box-new:hover{
+  border: none;
+  margin: 0 5px; 
+  padding: 5px 15px;
+  background-color: #bdc3c7;
+  color: #fff;
+}
+
+
+
+
+/* 登陆后的样式 */
+#login-box-after{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#login-box-after img{
+  width: 32px;
+  height: 32px;
+  margin: 0 8px;
+}
+
+#login-box-after button{
+  padding: 5px 10px;
+    margin: 0 5px;
+    text-decoration: none;
+    color: #fff;
+    border: none;
+    background-color: #2f3640;
+    border-radius: 3px;
+}
+
+#login-box-after button:hover{
+   
+    background-color: #bdc3c7;
+} 

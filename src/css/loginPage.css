@@ -1,0 +1,132 @@
+#login-page-background{
+	display: flex;
+	justify-content: center;
+	background-color:rgba(0,0,0,0.2);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	animation:move;
+	animation-duration: 1s;
+}
+
+
+@keyframes move{
+	from{
+		transform: translateY(-100%);
+	}
+}
+
+#login-page {
+	background-color: #ffffff;
+	border-radius: 3px;
+	box-sizing: border-box;
+
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+
+	width: 450px;
+	padding: 20px;
+
+	position: fixed;
+	top: 100px;
+
+}
+
+#login-page-head {
+	display: flex;
+	justify-content: space-between;
+	align-items:flex-end;
+	border-bottom: rgba(0,0,0,0.2) solid 1px;
+	padding: 15px 15px 5px 15px;
+	font-size: 25px;
+}
+
+#login-page-head button{
+	display: block;
+	background-color: transparent;
+	border: 0;
+	font-size: 25px;
+}
+
+#login-page-input{
+	padding: 30px 30px 0 30px;
+}
+
+.input-class-box{
+	height: 40px;
+	border: solid 2px #2f3640;
+	border-radius: 20px;
+	margin-bottom: 8px;
+	padding: 2px 10px;
+}
+
+
+.input-class-box img{
+	height: 30px;
+	width: 30px;
+	margin: 5px;
+}
+
+.input-class {
+	height: 40px;
+	border: 0;
+	font-size: 18px;
+	outline: none;
+	vertical-align: top;
+}
+
+#login-page-input-check{
+	width: 100%;
+	display: flex;
+	margin-bottom: 8px;
+}
+
+#check-input-tip{
+	width: 50%;
+	text-align: left;
+	color: red;
+}
+#check-input-remenberPassword{
+	width: 50%;
+	text-align: right;
+}
+
+#login-page-input-button{
+	box-sizing: border-box;
+	padding: 20px 0;
+}
+.input-button {
+	
+	box-sizing: border-box;
+	width: 100%;
+	height: 40px;
+	color:white;
+	border-radius: 20px;
+	background-color: #2f3640;
+	border: 0;
+	outline: none;
+	font-size: 18px;
+}
+
+.input-button:hover{
+	background-color: #bdc3c7;
+	color: #ffffff;
+}
+
+#login-page-foot {
+	width: 100%;
+	text-align: center;
+}
+
+#login-page-foot a {
+	text-decoration: none;
+	font-size: 14px;
+	color:black;
+}
+
+#login-page-foot a:visited{
+	color: black;
+}
