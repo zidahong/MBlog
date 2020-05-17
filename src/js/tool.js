@@ -16,12 +16,8 @@ function getTime() {
     //获取当前时间
     let time = new Date()
     let year = time.getFullYear();
-    let mouth =time.getMonth();
-<<<<<<< HEAD
-    let date = time.getDate()+1;
-=======
+    let mouth =time.getMonth()+1;
     let date = time.getDate();
->>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
     let hours = time.getHours();
     let Minutes = time.getMinutes();
     return year + '-' +mouth + '-' + date + ' ' + hours + ':' + Minutes;

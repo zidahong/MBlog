@@ -26,11 +26,6 @@
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
-<<<<<<< HEAD
-
-=======
-	
->>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
 	width: 450px;
 	padding: 20px;
 
@@ -64,11 +59,7 @@
 	border: solid 2px #2f3640;
 	border-radius: 20px;
 	margin-bottom: 8px;
-<<<<<<< HEAD
 	padding: 2px 10px;
-=======
-	padding: 2px;
->>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
 }
 
 

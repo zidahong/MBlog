@@ -1,27 +1,27 @@
 <template>
   <div id="comment-box">
-    <div id="comment-box-contain">
-      <div id="comment-box-contain-height" class="comment-box-contain-class">
+    <div class="comment-box-header">
+      <div class="comment-box-header-title">
         <h3>评论区</h3>
       </div>
-      <div id="comment-box-contain-input" class="comment-box-contain-class">
+      <div class="comment-box-header-input">
         <textarea placeholder="在这里留下你的评论~" v-model="commentData.comment"></textarea>
         <button @click="submitComment">提交</button>
       </div>
-<<<<<<< HEAD
-      <div v-for="item in comments" :key="item.id" class="comment-box-contain-class">
-=======
-      <div v-for="item in comments" :key="item.ID" class="comment-box-contain-class">
-        <div class="comment-box-class-id">#{{item.ID}}楼</div>
->>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
-        <div class="comment-box-class-author">用户：{{item.author}}</div>
-        <div class="comment-box-class-comment">评论：{{item.comment}}</div>
-        <div class="comment-box-class-time">时间：{{item.time}}</div>
+    </div>
+    <div class="comment-box-contain">
+      <div v-for="item in comments" :key="item.id" class="comment-box-contain-comment-block">
+        <div class="comment-box-class-author">
+          <img src="@/img/login/headpic.png" />
+          <div class="comment-author-name">{{item.author}}</div>
+        </div>
+        <div class="comment-box-class-comment">{{item.comment}}</div>
+        <div class="comment-box-class-time">{{item.time}}</div>
       </div>
 
       <div id="comment-box-button">
-        <button @click="getLastComments">上一页</button>
-        <button @click="getNextComments">下一页</button>
+        <button v-if="isMore"  @click="getNextComments">显示更多评论~</button>
+        <p v-else>没有评论了~</p>
       </div>
     </div>
   </div>
@@ -37,56 +37,39 @@ export default {
     return {
       comments: {},
       page: 1,
+      isMore:true,
       commentData: {
         username: "",
         comment: "",
-<<<<<<< HEAD
         time: "",
-        textId:""
+        textId: ""
       }
     };
   },
-  props:['textid'],
+  props: ["textid"],
   created() {
     this.commentData.textId = this.textid;
-    ajax.ajax("comment?id=0&textid="+this.commentData.textId, data => {
-=======
-        time: ""
-      }
-    };
-  },
-  created() {
-    ajax.ajax("comment?id=0", data => {
->>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
+    ajax.ajax("comment?id=0&textid=" + this.commentData.textId, data => {
       this.comments = data;
+       if(data.length<10)
+          {
+            this.isMore = false;
+          }
     });
   },
   methods: {
     submitComment() {
-<<<<<<< HEAD
       if (this.$store.state.user) {
-=======
-      if (document.cookie) {
->>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
         if (this.commentData.comment == "") {
           alert("请输入内容后再提交评论哦");
         } else {
           //获取用户名
-<<<<<<< HEAD
-          this.commentData.username =this.$store.state.user;
+          this.commentData.username = this.$store.state.user;
           //获取评论时间
           this.commentData.time = tool.getTime();
           this.commentData.textId = this.textid;
-       
-          let text = this.commentData;
-=======
-          this.commentData.username = tool.cookieToObj().LoginName;
-          //获取评论时间
-          this.commentData.time = tool.getTime();
 
           let text = this.commentData;
-
->>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
           ajax.submitComment(text, data => {
             console.log(data);
             alert("评论成功");
@@ -99,76 +82,52 @@ export default {
     },
     //评论下一页
     getNextComments() {
-      if (this.comments.length < 10) {
-        alert("没有更多内容了~");
-      } else {
         this.page = this.page + 1;
         let start = (this.page - 1) * 10;
-<<<<<<< HEAD
-        let sql = "comment?id=" + start +"&textid="+this.commentData.textId;
-=======
-        let sql = "comment?id=" + start;
->>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
+        let sql = "comment?id=" + start + "&textid=" + this.commentData.textId;
         ajax.ajax(sql, data => {
-          this.comments = data;
+          if(data.length<10)
+          {
+            this.comments = this.comments.concat(data);
+            this.isMore = false;
+          }else{
+            this.comments =this.comments.concat(data);
+          }
+          
+
         });
-      }
+      
     },
-    // 评论上一页
-    getLastComments() {
-      if (this.page == 1) {
-        alert("没有上一页了~");
-      } else {
-        this.page = this.page - 1;
-        let start = (this.page - 1) * 10;
-<<<<<<< HEAD
-        let sql = "comment?id=" + start+"&textid="+this.commentData.textId;
-=======
-        let sql = "comment?id=" + start;
->>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
-        ajax.ajax(sql, data => {
-          this.comments = data;
-        });
-      }
-    }
   }
 };
 </script>
 
 <style>
 #comment-box {
-  display: flex;
-  justify-content: center;
-  width: 880px;
+  background-color: #fff;
+  border-radius: 3px;
   box-sizing: border-box;
-<<<<<<< HEAD
-  padding: 0 20px 20px 20px;
-=======
-  padding: 20px;
->>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
+  width: 694px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  margin-top: 20px;
 }
 
-#comment-box-contain {
-  background-color: #eeeeee;
-  border-radius: 3px;
+.comment-box-header {
+  border-bottom: 2px solid #f6f6f6;
   padding: 20px;
-  width: 100%;
 }
 
-.comment-box-contain-class {
-  box-sizing: border-box;
-  background-color: #ffffff;
-  padding: 15px;
-  border-radius: 3px;
-  margin-bottom: 20px;
+.comment-box-header-title {
+  padding-bottom: 15px;
 }
-#comment-box-contain-input {
+
+.comment-box-header-input {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 }
 
-#comment-box-contain-input textarea {
+.comment-box-header-input textarea {
   margin-top: 5px;
   resize: none;
   height: 75px;
@@ -177,13 +136,10 @@ export default {
   width: 100%;
   box-sizing: border-box;
   border-radius: 3px;
-<<<<<<< HEAD
   border: solid 1px #eeeeee;
-=======
->>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
 }
 
-#comment-box-contain-input button {
+.comment-box-header-input button {
   background-color: #f4f4f5;
   color: #606266;
   border: none;
@@ -192,21 +148,43 @@ export default {
   border-radius: 3px;
 }
 
-#comment-box-contain-input button:hover {
+.comment-box-header-input button:hover {
   background-color: #409eff;
   color: #fff;
 }
 
 /* 评论区评论的样式 */
-.comment-box-class-id {
+.comment-box-contain {
 }
+
+.comment-box-contain-comment-block {
+  border-bottom: 2px solid #f6f6f6;
+  padding: 20px;
+}
+
 .comment-box-class-author {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.comment-author-name{
+  padding: 0 20px;
+}
+
+.comment-box-class-author img {
+  width: 30px;
+  height: 30px;
 }
 
 .comment-box-class-comment {
+  padding: 10px;
 }
 
 .comment-box-class-time {
+  padding: 10px;
+  color: rgb(153, 153, 153);;
+  font-size: 15px;
 }
 
 #comment-box-button {
@@ -228,9 +206,14 @@ export default {
   border-radius: 3px;
 }
 
-#comment-box-button button:hover{
+#comment-box-button button:hover {
   background-color: #409eff;
   color: #fff;
+}
 
+#comment-box-button p{
+ 
+  color: #606266;
+  font-size: 15px;
 }
 </style>

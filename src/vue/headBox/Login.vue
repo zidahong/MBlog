@@ -1,136 +1,86 @@
 <template>
-  <div id="login-box">
+  <div class="AppHeader-userInfo">
     <!-- 显示登陆前 -->
-<<<<<<< HEAD
-    <div v-if="!$store.state.isLogining" id="login-box-before">
-=======
-    <div v-if="isShowLogin" id="login-box-before">
->>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
-      <button id="login-box-login" @click="isLogin">立即登录</button>
-      <button id="login-box-new" @click="isCreate">免费注册</button>
+    <div v-if="!$store.state.isLogining" class="AppHeader-login">
+      <button class="AppHeaderLogin" @click="isLogin">登录</button>
+      <button class="AppHeaderPrimary" @click="isCreate">注册</button>
     </div>
 
     <!-- 显示登录后 -->
-<<<<<<< HEAD
-    <div v-else id="login-box-after">
-      <img src="@/img/login/headpic.png" />
-      <div id="login-box-after-info">欢迎用户：{{$store.state.user}}</div>
-      <button>设置</button>
-      <button @click="isLoginOut">退出</button>
+    <div v-else class="AppHeader-profile">
+      <button @click="isShowProfileSet">
+        <img src="@/img/login/headpic.png" />
+      </button>
+
+      <!-- <div id="login-box-after-info">欢迎用户：{{$store.state.user}}</div> -->
+      <!-- <button @click="isSetUp">设置</button>
+      <button >退出</button>-->
+
+      <div v-show="showProfileSet" class="AppHeaderProfileMenu">
+        <div class="AppHeaderProfileMenu-arrow"></div>
+        <ul class="ProfileMenu">
+          <li class="ProfileMenu-item">
+            <a>
+              <svg class="Zi Zi--Settings" fill="currentColor" viewBox="0 0 24 24" width="16" height="16"><path d="M20.868 17.185a.896.896 0 0 1-.452.137c-.123 0-1.397-.26-1.617-.233-1.354.014-1.78 1.276-1.835 1.742-.055.453 0 .892.191 1.303a.8.8 0 0 1-.068.851C16.224 21.877 14.922 22 14.73 22a.548.548 0 0 1-.356-.151c-.11-.096-.685-1.138-1.069-1.468-1.304-.955-2.247-.329-2.63 0-.398.33-.672.7-.836 1.125a.632.632 0 0 1-.329.37c-1.354.426-2.918-.919-3.014-1.056a.564.564 0 0 1-.123-.356c-.014-.138.383-1.276.342-1.688-.342-1.9-1.836-1.687-2.096-1.673a3.192 3.192 0 0 0-.918.178.873.873 0 0 1-.59-.055c-.887-.462-1.136-2.332-1.109-2.51.055-.315.192-.521.438-.604.425-.164.809-.452 1.151-.85.931-1.262.343-2.25 0-2.634-.342-.356-.726-.645-1.15-.809-.138-.041-.234-.151-.33-.316-.38-1.434.613-2.552.867-2.77.255-.22.6-.055.723 0 .425.164.877.219 1.343.15C6.7 6.636 6.784 5.141 6.81 4.908c.014-.247-.11-1.29-.137-1.4a.488.488 0 0 1 .027-.315C7.317 2.178 9.071 2 9.222 2a.56.56 0 0 1 .439.178c.11.124.63 1.111 1 1.4.4.338 1.583.83 2.59.013.397-.274.959-1.29 1.082-1.413A.55.55 0 0 1 14.717 2c1.56 0 2.329 1.029 2.438 1.22a.458.458 0 0 1 .069.371c-.028.151-.329 1.152-.26 1.605.365 1.537 1.383 1.742 1.89 1.783.493.028 1.644-.356 1.809-.343a.63.63 0 0 1 .424.206c.535.31.85 1.715.905 2.14.027.233-.014.439-.11.562-.11.138-1.165.714-1.48 1.112-.855.982-.342 2.25-.068 2.606.26.37 1.22.905 1.288.96.15.137.26.302.315.494.146 1.413-.89 2.387-1.069 2.47zm-8.905-.535c.644 0 1.246-.123 1.822-.356a4.576 4.576 0 0 0 1.493-1.016 4.694 4.694 0 0 0 1-1.495c.247-.562.357-1.18.357-1.81 0-.659-.11-1.262-.356-1.825a4.79 4.79 0 0 0-1-1.481 4.542 4.542 0 0 0-1.494-1.002 4.796 4.796 0 0 0-3.631 0 4.627 4.627 0 0 0-1.48 1.002c-.424.425-.767.919-1 1.481a4.479 4.479 0 0 0-.37 1.825c0 .644.124 1.248.37 1.81a4.62 4.62 0 0 0 1 1.495c.425.426.918.768 1.48 1.016a4.677 4.677 0 0 0 1.809.356z" fill-rule="evenodd"></path></svg>
+            设置</a>
+          </li>
+          <li class="ProfileMenu-item" @click="isLoginOut">
+            <a>
+              <svg class="Zi Zi--Logout" fill="currentColor" viewBox="0 0 24 24" width="16" height="16"><path d="M2 11.999c0-2.756 1.154-5.417 3.167-7.3a1.266 1.266 0 0 1 1.73 1.847 7.396 7.396 0 0 0-2.367 5.453c0 4.119 3.35 7.47 7.47 7.47 4.119 0 7.47-3.351 7.47-7.47a7.41 7.41 0 0 0-2.279-5.37 1.266 1.266 0 0 1 1.76-1.819A9.923 9.923 0 0 1 22 12c0 5.513-4.486 10-10 10s-10-4.487-10-10zm8.699-.482V3.26a1.26 1.26 0 1 1 2.52 0v8.257a1.26 1.26 0 1 1-2.52 0z" fill-rule="evenodd"></path></svg>
+              退出</a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
-
 </template>
 
 <script>
-const tool = require('@/js/tool.js');
+const tool = require("@/js/tool.js");
 export default {
   name: "Login",
-  created() {
-    // 检测是否已经登陆,更新登陆用户名
-    if (document.cookie) {
-      this.$store.commit('login',tool.cookieToObj().LoginName);
-=======
-    <div id="login-box-after" v-else>
-      <img src="@/img/login/headpic.png" />
-      <div id="login-box-after-info">欢迎用户：{{username}}</div>
-      <button>设置</button>
-      <button @click="isLoginOut">退出</button>
-    </div>
-    <LoginPage v-if="isShowLoginPage" @isCloseLoginPage="isCloseLoginPage" @isLoginOk="isLoginOk"></LoginPage>
-    <CreatePage v-if="isShowCreatePage" @isCloseCreatePage="isCloseCreatePage" @isCreateOk="isCreateOk"></CreatePage>
-  </div>
-</template>
-
-<script>
-import LoginPage from "@/vue/headBox/LoginPage";
-import CreatePage from "@/vue/headBox/CreateAcount";
-const tool = require('@/js/tool.js');
-export default {
-  name: "Login",
-  data() {
-    return {
-      // 显示登陆按钮true/已经登陆false
-      isShowLogin: true,
-      //显示登陆的页面
-      isShowLoginPage: false,
-      //显示注册用户页面
-       isShowCreatePage: false,
-       //用户名
-       username: '',
-    };
-  },
-  components: {
-    LoginPage,
-    CreatePage
-  },
-  created() {
-    // 检测是否已经登陆,更新登陆用户名
-    if (document.cookie) {
-      this.isShowLogin = false;
-      this.username = tool.cookieToObj().LoginName;
->>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
+  data(){
+    return{
+      showProfileSet:false
     }
   },
-  updated(){
+  created() {
+    // 检测是否已经登陆,更新登陆用户名
+    if (document.cookie) {
+      this.$store.commit("login", tool.cookieToObj().LoginName);
+    }
+  },
+  updated() {
     // 当换用户时不用刷新页面也能显示用户名
-     if (document.cookie) {
-<<<<<<< HEAD
-       this.$store.commit('login',tool.cookieToObj().LoginName);
-=======
-      this.isShowLogin = false;
-      this.username = tool.cookieToObj().LoginName;
->>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
+    if (document.cookie) {
+      this.$store.commit("login", tool.cookieToObj().LoginName);
     }
   },
   methods: {
     //显示登陆页
     isLogin() {
-<<<<<<< HEAD
       this.$store.commit("openLoginPage");
     },
     //显示注册页
-    isCreate(){
+    isCreate() {
       this.$store.commit("openCreateAcountPage");
     },
 
-    // // 删除cookie并刷新页面
-=======
-      this.isShowLoginPage = !this.isShowLoginPage;
-    },
-    //显示注册页
-    isCreate(){
-      this.isShowCreatePage = !this.isShowCreatePage;
-    },
-    //接收登录页组件的关闭信号 isCloseLoginPage
-    isCloseLoginPage(val) {
-      this.isShowLoginPage = val;
-    },
-    //接收登陆页组件的登陆信号
-    isLoginOk(val) {
-      if (val) this.isShowLogin = !val;
-      this.isShowLoginPage = !val;
+    //设置
+    isSetUp() {
+      this.$router.push({ path: "/setup" });
     },
 
-    //关闭注册页面
-     isCloseCreatePage(val) {
-      this.isShowCreatePage = val;
-    },
-
-    //接收注册页组件的组成完成信号,显示登陆页面，关闭注册页面
-    isCreateOk(val) {
-      if (val) this.isShowLoginPage = val;
-      this.isShowCreatePage = !val;
-    },
-
-    // 删除cookie并刷新页面
->>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
+    // 退出 删除cookie并刷新页面
     isLoginOut() {
       document.cookie =
         document.cookie.match(/[^ =;]+(?=\=)/g)[0] +
         "=0;expires=" +
         new Date(0).toUTCString();
-       location.reload();
+      location.reload();
+    },
+    isShowProfileSet(){
+      this.showProfileSet = !this.showProfileSet;
     }
   }
 };

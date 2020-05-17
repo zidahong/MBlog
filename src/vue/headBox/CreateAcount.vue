@@ -3,18 +3,10 @@
     <div id="create-page">
       <div id="create-page-head">
         <div>注册</div>
-<<<<<<< HEAD
         <button @click="isClose">X</button>
       </div>
       <div id="create-page-input">
         <div class="create-page-input-class-box">
-=======
-        <button @click="isClick">X</button>
-      </div>
-      <div id="create-page-input">
-        <div class="create-page-input-class-box">
-          <img src="~@/img/login/loginUser.png" />
->>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
           <input
             id="create-page-input-user"
             type="text"
@@ -24,10 +16,6 @@
           />
         </div>
         <div class="create-page-input-class-box">
-<<<<<<< HEAD
-=======
-          <img src="~@/img/login/loginPassword.png" />
->>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
           <input
             id="login-page-input-password"
             type="password"
@@ -37,10 +25,6 @@
           />
         </div>
         <div class="create-page-input-class-box">
-<<<<<<< HEAD
-=======
-          <img src="~@/img/login/loginPassword.png" />
->>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
           <input
             id="login-page-input-password"
             type="password"
@@ -50,10 +34,6 @@
           />
         </div>
         <div class="create-page-input-class-box">
-<<<<<<< HEAD
-=======
-          <img src="~@/img/login/loginPassword.png" />
->>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
           <input
             id="login-page-input-password"
             type="text"
@@ -97,13 +77,8 @@ export default {
     };
   },
   methods: {
-<<<<<<< HEAD
     isClose() {
       this.$store.commit("closeCreateAcountPage");
-=======
-    isClick() {
-      this.$emit("isCloseCreatePage", false);
->>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
     },
     isCreate() {
       this.isAlarmIfSame = false;
@@ -126,12 +101,8 @@ export default {
         requstLogin.isCreate(this.user, this.password, this.email, data => {
           if(data=='200'){
               alert("注册成功");
-<<<<<<< HEAD
               this.$store.commit("closeCreateAcountPage");
               this.$store.commit("openLoginPage");
-=======
-              this.$emit("isCreateOk", data);
->>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
           }else{
               this.isAlarmIfFault=true;
           }

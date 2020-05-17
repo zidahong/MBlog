@@ -1,35 +1,43 @@
 /* 还没登陆的样式 */
-#login-box{
+.AppHeader-userInfo{
     display: flex;
     justify-content: center;
 }
 
-#login-box-login{
+.AppHeaderLogin{
     border: none;
     padding: 5px 15px;
     margin: 0 5px;
-    background-color: #eeeeee;
+    background-color: #fff;
+    border-radius: 3px;
+    border: solid #0084ff 1px;
+    color:#8590a6;
+    height: 34px;
+    cursor: pointer;
 }
 
-#login-box-login:hover{
-  color: #fff;
-  background-color:#bdc3c7;
+.AppHeaderLogin:hover{
+  background-color:rgba(0,132,255,.06);
 }
 
 
-#login-box-new{
+.AppHeaderPrimary{
     border: none;
     margin: 0 5px; 
     padding: 5px 15px;
-    background-color: #2f3640;
+    background-color: #0084ff;
     color: #fff;
+    cursor: pointer;
+    border-radius: 3px;
+    height: 34px;
+    
 }
 
-#login-box-new:hover{
+.AppHeaderPrimary:hover{
   border: none;
   margin: 0 5px; 
   padding: 5px 15px;
-  background-color: #bdc3c7;
+  background-color: #0077e6;
   color: #fff;
 }
 
@@ -37,29 +45,68 @@
 
 
 /* 登陆后的样式 */
-#login-box-after{
+.AppHeader-profile{
+  box-sizing: border-box;
+  position:relative;
+}
+.AppHeader-profile button{
+ box-sizing: border-box;
+ padding: 0;
+ font-size: 0;
+ border:none;
+ cursor: pointer;
+ background-color: #fff;
+ outline: none;
+}
+
+.AppHeader-profile img{
+  width: 30px;
+  height: 30px;
+}
+
+.AppHeaderProfileMenu{
+  width: 100px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  position: absolute;
+  top: 32px;
+  right: -36px;
+  box-sizing: border-box;
+  
+  
+}
+.AppHeaderProfileMenu-arrow{
+
+  height: 0;
+  width: 0;
+  box-sizing: border-box;
+  border:solid  10px;
+  border-color: transparent transparent #fff  transparent;
+  
+}
+.ProfileMenu{
+  text-align: center;
+  color: #bdc3c7;
+  background-color: #fff;
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 2px 15px 0 rgba(0, 0, 0, 0.1);
+}
+.ProfileMenu-item{
+ 
+  padding: 10px 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+  font-weight: 400;
+  color: #8590a6;
+  cursor: pointer;
+}
+.ProfileMenu-item svg{
+  vertical-align: middle;
 }
 
-#login-box-after img{
-  width: 32px;
-  height: 32px;
-  margin: 0 8px;
+.ProfileMenu-item:hover{
+  background-color: #f6f6f6;
 }
 
-#login-box-after button{
-  padding: 5px 10px;
-    margin: 0 5px;
-    text-decoration: none;
-    color: #fff;
-    border: none;
-    background-color: #2f3640;
-    border-radius: 3px;
-}
-
-#login-box-after button:hover{
-   
-    background-color: #bdc3c7;
-} 

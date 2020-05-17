@@ -1,21 +1,17 @@
 <template>
-  <div id="article-box">
+  <div class="article-box">
+    <div class="article-box-header">推荐</div>
     <div id="article-box-block" v-for="item in text" :key="item.ID" @click="showArticle(item)">
       <Articleblock @click="showArticle">
-<<<<<<< HEAD
         <template v-slot:header>{{item.title}}</template>
-        <!-- <template v-slot:section>{{item.Section}}</template> -->
+        <template v-slot:section>{{item.text}}</template>
         <template v-slot:footer>{{item.time}}</template>
-=======
-        <template v-slot:header>{{item.Head}}</template>
-        <template v-slot:section>{{item.Section}}</template>
-        <template v-slot:footer>{{item.Time}}</template>
->>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
       </Articleblock>
     </div>
     <div id="article-box-button">
-      <button @click="getLastText">上一页</button>
-      <button @click="getNextText">下一页</button>
+      <button v-if="isMore" @click="getNextText">显示更多内容~</button>
+      <p v-else >没有更多内容了哦~</p>
+
     </div>
   </div>
 </template>
@@ -28,7 +24,8 @@ export default {
   data() {
     return {
       page: 1,
-      text: {}
+      text: {},
+      isMore : true
     };
   },
   components: {
@@ -41,38 +38,26 @@ export default {
   },
   methods: {
     getNextText() {
-      if (this.text.length < 5) {
-        alert("没有更多内容了~");
-      } else {
+  
         this.page = this.page + 1;
         let start = 1 + (this.page - 1) * 5;
 
         let sql = "getblock?page=" + start + "&nums=5";
         getText.ajax(sql, data => {
-          this.text = data;
-          
+          if(data==''||data.length<5)
+          {
+            this.text=this.text.concat(data);
+            this.isMore = false;
+          }else{
+              this.text=this.text.concat(data);
+          }
         });
-      }
+      
     },
-    getLastText() {
-      if (this.page == 1) {
-        alert("没有上一页了~");
-      } else {
-        this.page = this.page - 1;
-        let start = 1 + (this.page - 1) * 5;
-        let sql = "getblock?page=" + start + "&nums=5";
-        getText.ajax(sql, data => {
-          this.text = data;
-        });
-      }
-    },
+  
     showArticle(item) {
       this.$router.push({
-<<<<<<< HEAD
         path: "/blog/"+item.id,
-=======
-        path: "/blog/"+item.ID,
->>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
       });
     }
   }
@@ -80,12 +65,21 @@ export default {
 </script>
 
 <style>
-#article-box {
-  background-color: #eeeeee;
-  padding: 20px;
+.article-box {
+  background-color: #fff;
   border-radius: 3px;
   box-sizing: border-box;
-  width: 840px;
+  width: 694px;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+
+.article-box-header{
+  box-sizing: border-box;
+  height: 59px;
+  color: #0084ff;
+  font-weight: 600;
+  border-bottom: 2px solid #f6f6f6;
+  padding: 20px;
 }
 
 #article-box-block {
@@ -111,9 +105,14 @@ export default {
   border-radius: 3px;
 }
 
+#article-box-button p {
+ 
+  color: #606266;
+  font-size: 15px;
+}
+
 #article-box-button button:hover{
   background-color: #409eff;
   color: #fff;
-
 }
 </style>

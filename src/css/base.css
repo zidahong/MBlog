@@ -4,16 +4,24 @@
 }
 
 body{
-<<<<<<< HEAD
-=======
-    /* background-image: url('~@/img/background/bg1.png'); */
->>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
-    background-color: #2f3640;
+    background-color: #f6f6f6;
     font-family: "Microsoft YaHei" ! important;
+}
+
+a{
+    text-decoration: none;
+    outline: none;
+}
+
+li{
+    list-style: none;
 }
 #html{
     min-height: 101%;
     min-width: 101%;
 }
-
+h3{
+    font-size: 18px;
+    font-weight: 600;
+}
 

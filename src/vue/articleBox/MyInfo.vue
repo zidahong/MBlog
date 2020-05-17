@@ -26,13 +26,14 @@ export default {
 <style>
 #side-box{
   box-sizing: border-box;
-  padding: 20px 20px 20px 0;
+  width: 296px;
+  margin-left: 10px;
+ 
 }
 #side-box-contain{
   box-sizing: border-box;
-  width: 300px;
-  padding: 20px;
-  background-color: #eeeeee;
+  box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+  background-color: #fff;
   border-radius: 3px;
 }
 #info-box {

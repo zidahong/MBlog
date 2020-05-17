@@ -1,5 +1,5 @@
 {
-  "name": "mlog",
+  "name": "mblog",
   "version": "1.0.0",
   "description": "",
   "main": "main.js",
@@ -33,11 +33,7 @@
     "cors": "^2.8.5",
     "multer": "^1.4.2",
     "mysql": "^2.18.1",
-<<<<<<< HEAD
     "vue": "^2.6.11",
     "vuex": "^3.4.0"
-=======
-    "vue": "^2.6.11"
->>>>>>> 0a20a82d68ce3a8e89f67e62f2c299df8f6bab3d
   }
 }

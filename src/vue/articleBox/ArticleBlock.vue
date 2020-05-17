@@ -33,16 +33,17 @@ export default {
   box-sizing: border-box;
   border-radius: 3px;
   padding: 20px;
-  margin-bottom: 20px;
   width: 100%;
+  cursor: pointer;
+  border-bottom: solid #f6f6f6 2px;
 }
 
-#article-block:hover{
+/* #article-block:hover{
   background-color: rgba(22,192,248,0.1);
   color: #188ae2;
   transition: 0.1s;
   transform: scale(1.01);
-}
+} */
 
 #article-block a{
   text-decoration: none;
