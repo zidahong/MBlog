@@ -14,6 +14,8 @@
             placeholder="用户名"
             class="create-page-input-class"
           />
+          <span class="error-tip" v-if="isAlarmIfRegUser">用户名格式错误</span>
+          <span class="error-tip" v-if="isAlarmIfFault">用户已存在</span>
         </div>
         <div class="create-page-input-class-box">
           <input
@@ -23,6 +25,7 @@
             placeholder="密码"
             class="create-page-input-class"
           />
+          <span class="error-tip" v-if="isAlarmIfRegPassword">密码格式错误</span>
         </div>
         <div class="create-page-input-class-box">
           <input
@@ -32,6 +35,7 @@
             placeholder="再次输入密码"
             class="create-page-input-class"
           />
+          <span class="error-tip" v-if="isAlarmIfSame">两次密码输入不一致</span>
         </div>
         <div class="create-page-input-class-box">
           <input
@@ -43,13 +47,8 @@
           />
         </div>
 
-        <div id="create-page-input-check">
-          <div id="create-page-check-input-tip">
-            <div v-if="isAlarmIfSame">两次密码输入不一致</div>
-            <div v-else-if="isAlarmIfRegUser">用户名由数字和字母组成，以字母开头，大于4位小于8位</div>
-            <div v-else-if="isAlarmIfRegPassword">密码需大于6位小于16位</div>
-            <div v-else-if="isAlarmIfFault">用户已存在</div>
-          </div>
+        <div id="create-page-input-tip">
+          <p>小提示：新用户的用户名要以字母开头且大于4位小于8位,且密码要大于6位小于16位。密码和用户名只能用字母和数字哦~</p>
         </div>
         <div id="create-page-input-button">
           <button @click="isCreate" type="button" class="create-page-input-button">注册</button>
@@ -73,7 +72,7 @@ export default {
       isAlarmIfSame: false,
       isAlarmIfRegUser: false,
       isAlarmIfRegPassword: false,
-      isAlarmIfFault:false,
+      isAlarmIfFault: false
     };
   },
   methods: {
@@ -84,27 +83,26 @@ export default {
       this.isAlarmIfSame = false;
       this.isAlarmIfRegUser = false;
       this.isAlarmIfRegPassword = false;
-      this.isAlarmIfFault=false;
+      this.isAlarmIfFault = false;
 
       // 用户名以字母开头且大于4位小于8位
       let regUser = /^([A-z])([0-9]|[A-z]){3,7}$/g;
       //密码大于6位小于16位，字母和数字
       let regPassword = /^([0-9]|[A-z])([0-9]|[A-z]){5,15}$/g;
-
-      if (this.password != this.passwordR) {
-        this.isAlarmIfSame = true;
-      } else if (!regUser.test(this.user)) {
+      if (!regUser.test(this.user)) {
         this.isAlarmIfRegUser = true;
       } else if (!regPassword.test(this.password)) {
         this.isAlarmIfRegPassword = true;
+      } else if (this.password != this.passwordR) {
+        this.isAlarmIfSame = true;
       } else {
         requstLogin.isCreate(this.user, this.password, this.email, data => {
-          if(data=='200'){
-              alert("注册成功");
-              this.$store.commit("closeCreateAcountPage");
-              this.$store.commit("openLoginPage");
-          }else{
-              this.isAlarmIfFault=true;
+          if (data == "200") {
+            alert("注册成功");
+            this.$store.commit("closeCreateAcountPage");
+            this.$store.commit("openLoginPage");
+          } else {
+            this.isAlarmIfFault = true;
           }
         });
       }

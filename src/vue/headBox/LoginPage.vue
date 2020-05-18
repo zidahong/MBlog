@@ -13,7 +13,9 @@
             v-model="user"
             placeholder="用户名"
             class="input-class"
+            @focus="closeShowError"
           />
+          <span class="error-tip" v-if="isShow">用户或密码错误！</span>
         </div>
         <div class="input-class-box">
        
@@ -23,26 +25,20 @@
             v-model="password"
             placeholder="输入密码"
             class="input-class"
+            @focus="closeShowError"
           />
         </div>
 
         <div id="login-page-input-check">
-          <div id="check-input-tip">
-            <span v-if="isShow">用户或密码错误！</span>
-            <!-- <span v-if="isSerError">登陆失败！</span> -->
+          <div id="create-acount">
+             <span @click="showCreateAcountPage"><a>注册账号</a></span>
           </div>
-          <div id="check-input-remenberPassword">
-            <input type="checkbox" name="postCheck" id="check" />
-            <label for="check">记住密码</label>
+          <div id="forget-password">
+              <a href="/">忘记密码?</a>
           </div>
         </div>
         <div id="login-page-input-button">
           <button @click="isLogin" type="button" class="input-button">登陆</button>
-        </div>
-        <div id="login-page-foot">
-          <a href="/">忘记密码</a>
-          <span>|</span>
-          <a href="/">注册账号</a>
         </div>
       </div>
     </div>
@@ -68,7 +64,6 @@ export default {
       this.$store.commit("closeLoginPage")
     },
     isLogin() {
-     
       requstLogin.isLogin(this.user, this.password, data => {
         if (data == "404") {
           this.isShow = true; 
@@ -77,6 +72,14 @@ export default {
           this.$store.commit("closeLoginPage");
         }
       });
+    },
+    showCreateAcountPage(){
+      this.$store.commit("closeLoginPage");
+      this.$store.commit("openCreateAcountPage");
+
+    },
+    closeShowError(){
+      this.isShow = false;
     }
   }
 };

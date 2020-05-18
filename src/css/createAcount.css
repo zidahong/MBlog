@@ -8,7 +8,7 @@
 	width: 100%;
 	height: 100%;
 	animation:move;
-	animation-duration: 1s;
+	animation-duration: 0.5s;
 }
 
 
@@ -22,16 +22,13 @@
 	background-color: #ffffff;
 	border-radius: 3px;
 	box-sizing: border-box;
-
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
-	
-	width: 450px;
-	padding: 20px;
-
+	width: 420px;
 	position: fixed;
 	top: 100px;
+	box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
 
 }
 
@@ -40,58 +37,45 @@
 	justify-content: space-between;
 	align-items:flex-end;
 	border-bottom: rgba(0,0,0,0.2) solid 1px;
-	padding: 15px 15px 5px 15px;
-	font-size: 25px;
+	font-weight: 600;
+	font-size: 16px;
+	color: #0077e6;
+	padding: 20px;
 }
 
 #create-page-head button{
 	display: block;
 	background-color: transparent;
 	border: 0;
-	font-size: 25px;
+	font-size: 20px;
+	cursor: pointer;
+	color: #8590a6;
 }
 
 #create-page-input{
-	padding: 30px 30px 0 30px;
+	padding: 20px;
 }
 
 .create-page-input-class-box{
-	height: 40px;
-	border: solid 2px #2f3640;
-	border-radius: 20px;
-	margin-bottom: 8px;
-	padding: 2px;
-}
-
-
-.create-page-input-class-box img{
-	height: 30px;
-	width: 30px;
-	margin: 5px;
+	border-bottom: rgba(0,0,0,0.2) solid 1px;
+	margin: 20px 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 .create-page-input-class {
-	height: 40px;
-	border: 0;
-	font-size: 18px;
-	outline: none;
-	vertical-align: top;
+	border: none;
+	font-size: 16px;
+	height: 48px;
+	width: 220px;
 }
 
-#create-page-input-check{
-	width: 100%;
-	display: flex;
-	margin-bottom: 8px;
-}
-#create-page-input-check div{
-    width: 100%;
+#create-page-input-tip{
+	font-size: 15px;
+	color: #8590a6;
 }
 
-#create-page-check-input-tip{
-	width: 50%;
-	text-align: left;
-	color: red;
-}
 
 
 #create-page-input-button{
@@ -104,14 +88,19 @@
 	width: 100%;
 	height: 40px;
 	color:white;
-	border-radius: 20px;
-	background-color: #2f3640;
+	border-radius: 3px;
+	background-color:rgb(0, 132, 255);
 	border: 0;
 	outline: none;
-	font-size: 18px;
+	font-size: 16px;
 }
 
 .create-page-input-button:hover{
-	background-color: #bdc3c7;
+	background-color: rgb(0, 119, 230);
 	color: #ffffff;
 }
+
+.error-tip{
+	color: red;
+}
+
