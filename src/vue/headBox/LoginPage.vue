@@ -33,8 +33,8 @@
           <div id="create-acount">
              <span @click="showCreateAcountPage"><a>注册账号</a></span>
           </div>
-          <div id="forget-password">
-              <a href="/">忘记密码?</a>
+          <div id="forget-password" @click="isClose">
+            <router-link to="setpassword"><span>忘记密码?</span></router-link>
           </div>
         </div>
         <div id="login-page-input-button">
@@ -80,7 +80,7 @@ export default {
     },
     closeShowError(){
       this.isShow = false;
-    }
+    },
   }
 };
 </script>

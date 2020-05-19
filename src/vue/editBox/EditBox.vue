@@ -37,7 +37,7 @@ export default {
   methods: {
     submitText() {
       if (!this.$store.state.user) {
-        alert("请登陆后再发帖~")
+        this.$store.commit('openLoginPage')
       } else {
         this.discuss.user =this.$store.state.user;
           //获取评论时间
@@ -114,16 +114,19 @@ export default {
 
 #edit-article-submit button {
   width: 100%;
-  background-color: #f4f4f5;
-  color: #606266;
+  background-color: #0084ff;
+   color: #fff;
   padding: 10px;
   border-radius: 3px;
   border: solid 1px #eeeeee;
+  outline: none;
+  cursor: pointer;
 }
 
 #edit-article-submit button:hover {
-   background-color: #409eff;
+   background-color: #0077e6;
     color: #fff;
+    outline: none;
 }
 
 </style>

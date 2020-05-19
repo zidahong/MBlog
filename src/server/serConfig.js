@@ -1,4 +1,4 @@
-const mysqlConfig = {
+const mysqlConfig = {//数据库配置
     host: 'localhost', //主机名称
     user: 'root', //用户名
     password: 'root', //用户密码

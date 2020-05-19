@@ -8,6 +8,7 @@ export default new Vuex.Store({
         isLoginPage : false,
         isCreaeteAcountPage :false,
         isLogining:false,
+        countTime:60,
         user:"",
         
     },
@@ -18,6 +19,7 @@ export default new Vuex.Store({
             state.isLoginPage = false;
         },
         openLoginPage(state){
+
             state.isLoginPage = true;
         },
 
@@ -34,6 +36,15 @@ export default new Vuex.Store({
             state.isLogining = true;
             state.user = value;
         },
+
+        //计算时间,每次减一
+        cutCountTime(state){
+            state.countTime--;
+        },
+        //重置计时
+        resetCountTime(state){
+            state.countTime = 60;
+        }
     }
 })
 

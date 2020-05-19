@@ -12,10 +12,6 @@
         <img src="@/img/login/headpic.png" />
       </button>
 
-      <!-- <div id="login-box-after-info">欢迎用户：{{$store.state.user}}</div> -->
-      <!-- <button @click="isSetUp">设置</button>
-      <button >退出</button>-->
-
       <div v-show="showProfileSet" class="AppHeaderProfileMenu">
         <div class="AppHeaderProfileMenu-arrow"></div>
         <ul class="ProfileMenu">

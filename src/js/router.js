@@ -4,6 +4,7 @@ import backgroundbox from '@/vue/articleBox/ArticleBox';
 import writeArticle from '@/vue/editBox/EditBox';
 import showArticle from '@/vue/articleBox/ShowArticleBox'
 import setup from '@/vue/headbox/SetUp'
+import setPassword from '@/vue/headbox/setPassword'
 
 Vue.use(VueRouter);
 
@@ -25,11 +26,12 @@ const routes = [
         //写文章
         path:'/writearticle',
         component:writeArticle
+      
     },
     {
-        //设置
-        path:'/setup',
-        component:setup
+        //修改密码
+        path:'/setpassword',
+        component:setPassword
     }
 ];
 

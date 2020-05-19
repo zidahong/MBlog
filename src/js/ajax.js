@@ -1,17 +1,27 @@
 //发送给请求，返回JSON对象
 function ajax(query, callback) {
   const http = require('./httpconfig');
-  
   let xhr = new XMLHttpRequest();
   xhr.withCredentials = true; //允许跨域请求
   xhr.open('get', http.url + query);
-
   xhr.send();
   xhr.onload = function () {
     let resText = JSON.parse(xhr.responseText);
     callback(resText);
   }
 };
+//发送给请求，返回字符串
+function ajaxString(query, callback) {
+  const http = require('./httpconfig');
+  let xhr = new XMLHttpRequest();
+  xhr.withCredentials = true; //允许跨域请求
+  xhr.open('get', http.url + query);
+  xhr.send();
+  xhr.onload = function () {
+    callback(xhr.responseText);
+  }
+};
+
 
 
 //发送登陆时的用户信息
@@ -100,12 +110,37 @@ function submitComment(text,callback){
   }
 }
 
+function changePassword(text,callback){
+  const http = require('./httpconfig');
+  let xhr = new XMLHttpRequest();
+  xhr.withCredentials = true;
+  xhr.open('post',http.url+"auth");
+  xhr.setRequestHeader(
+    "Content-Type",
+    "application/x-www-form-urlencoded; charset=UTF-8"
+  );
+
+  let user = "user=" + text.user +"&";
+  let password = "password=" + text.password +"&";
+  let authcode = "authcode=" + text.authCode;
+ 
+
+  let query = user + password + authcode;
+
+  xhr.send(query);
+  xhr.onload = function(){
+    callback(xhr.responseText);
+  }
+}
+
 
 
 module.exports = {
   ajax,
+  ajaxString,
   isLogin,
   isCreate,
   submitText,
-  submitComment
+  submitComment,
+  changePassword
 };
