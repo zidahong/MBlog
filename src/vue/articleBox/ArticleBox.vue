@@ -103,6 +103,7 @@ export default {
   margin: 0 5px;
   padding: 0 10px;
   border-radius: 3px;
+  cursor: pointer;
 }
 
 #article-box-button p {

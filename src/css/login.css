@@ -48,7 +48,17 @@
 .AppHeader-profile{
   box-sizing: border-box;
   position:relative;
+  display: flex;
+  align-items: center;
 }
+
+.AppHeader-profile-name{
+  padding: 0 20px;
+  font-weight: 600px;
+  color: #0087ff;
+  cursor: default;
+}
+
 .AppHeader-profile button{
  box-sizing: border-box;
  padding: 0;
@@ -58,6 +68,7 @@
  background-color: #fff;
  outline: none;
 }
+
 
 .AppHeader-profile img{
   width: 30px;

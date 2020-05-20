@@ -55,6 +55,7 @@ export default {
 </script>
 
 <style>
+
 #edit-box {
   background-color: #fff;
   border-radius: 3px;
@@ -64,9 +65,6 @@ export default {
 }
 
 
-#edit-box-contain {
-
-}
 #edit-box-header{
   box-sizing: border-box;
   height: 59px;

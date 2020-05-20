@@ -10,7 +10,6 @@ export default new Vuex.Store({
         isLogining:false,
         countTime:60,
         user:"",
-        
     },
     mutations:{
 

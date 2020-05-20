@@ -77,7 +77,7 @@ export default {
           });
         }
       } else {
-        alert("请登陆后再评论！");
+        this.$store.commit('openLoginPage')
       }
     },
     //评论下一页
@@ -93,8 +93,6 @@ export default {
           }else{
             this.comments =this.comments.concat(data);
           }
-          
-
         });
       
     },
@@ -140,22 +138,23 @@ export default {
 }
 
 .comment-box-header-input button {
-  background-color: #f4f4f5;
-  color: #606266;
+  background-color: #0084ff;
+  color: #fff;
   border: none;
   margin: 20px 5px 0 5px;
   padding: 5px 10px;
   border-radius: 3px;
+  outline: none;
+  cursor: pointer;
 }
 
 .comment-box-header-input button:hover {
-  background-color: #409eff;
+  background-color: #0077e6;
   color: #fff;
+  outline: none;
 }
 
 /* 评论区评论的样式 */
-.comment-box-contain {
-}
 
 .comment-box-contain-comment-block {
   border-bottom: 2px solid #f6f6f6;
@@ -195,6 +194,7 @@ export default {
   height: 52px;
   padding: 10px;
   border-radius: 3px;
+  cursor: pointer;
 }
 
 #comment-box-button button {
@@ -204,6 +204,7 @@ export default {
   margin: 0 5px;
   padding: 0 10px;
   border-radius: 3px;
+  cursor: pointer;
 }
 
 #comment-box-button button:hover {
