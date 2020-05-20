@@ -33,7 +33,7 @@ export default {
   box-sizing: border-box;
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
   height: 250px;
-  cursor: pointer;
+  cursor: default;
 }
 
 #info-contain-title{

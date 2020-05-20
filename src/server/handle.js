@@ -74,7 +74,7 @@ function getArticleBrief(page, nums, callback) {
     connect.connect()
 
     page = page - 1; //索引从0开始
-    const sql = 'select id,title,text,time,user from text limit ' + page + ',' + nums;
+    const sql = 'select id,title,text,time,user from text order by id desc limit ' + page + ',' + nums;
 
     console.log(sql);
 
@@ -160,7 +160,7 @@ function getComment(id, textid, callback) {
     const connect = mysql.createConnection(config.mysqlConfig);
     connect.connect();
 
-    const sql = 'select * from comment where textid =' + textid + ' limit ' + id + ',10';
+    const sql = 'select * from comment where textid =' + textid + ' order by id desc limit ' + id + ',10';
 
     connect.query(sql, (err, data) => {
         if (err) {

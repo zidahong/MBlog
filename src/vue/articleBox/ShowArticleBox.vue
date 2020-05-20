@@ -55,7 +55,7 @@ header{
   background-color: #ffffff;
   padding: 15px;
   border-radius: 3px;
-  margin-bottom: 20px;
+ 
 }
 .show-article-author-info{
   padding: 20px;

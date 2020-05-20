@@ -10,8 +10,7 @@
     </div>
     <div id="article-box-button">
       <button v-if="isMore" @click="getNextText">显示更多内容~</button>
-      <p v-else >没有更多内容了哦~</p>
-
+      <p v-else>没有更多内容了哦~</p>
     </div>
   </div>
 </template>
@@ -25,7 +24,7 @@ export default {
     return {
       page: 1,
       text: {},
-      isMore : true
+      isMore: true
     };
   },
   components: {
@@ -33,31 +32,44 @@ export default {
   },
   created() {
     getText.ajax("getblock?page=1&nums=5", data => {
+      for (let i = 0; i < data.length; i++) {
+        if (data[i].text.length > 100) {
+          data[i].text = data[i].text.slice(0, 60)+'...';
+        }
+      }
       this.text = data;
     });
   },
   methods: {
     getNextText() {
-  
-        this.page = this.page + 1;
-        let start = 1 + (this.page - 1) * 5;
+      this.page = this.page + 1;
+      let start = 1 + (this.page - 1) * 5;
 
-        let sql = "getblock?page=" + start + "&nums=5";
-        getText.ajax(sql, data => {
-          if(data==''||data.length<5)
-          {
-            this.text=this.text.concat(data);
-            this.isMore = false;
-          }else{
-              this.text=this.text.concat(data);
+      let sql = "getblock?page=" + start + "&nums=5";
+
+      getText.ajax(sql, data => {
+
+        for (let i = 0; i < data.length; i++) {
+          //限制简介的字长
+          if (data[i].text.length > 100) {
+            data[i].text = data[i].text.slice(0, 60)+'...';
           }
-        });
-      
+        }
+
+        if (data == "" || data.length < 5) {
+          this.text = this.text.concat(data);
+        
+          this.isMore = false;
+        } else {
+          this.text = this.text.concat(data);
+       
+        }
+      });
     },
-  
+
     showArticle(item) {
       this.$router.push({
-        path: "/blog/"+item.id,
+        path: "/blog/" + item.id
       });
     }
   }
@@ -73,7 +85,7 @@ export default {
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
 }
 
-.article-box-header{
+.article-box-header {
   box-sizing: border-box;
   height: 59px;
   color: #0084ff;
@@ -107,12 +119,11 @@ export default {
 }
 
 #article-box-button p {
- 
   color: #606266;
   font-size: 15px;
 }
 
-#article-box-button button:hover{
+#article-box-button button:hover {
   background-color: #409eff;
   color: #fff;
 }
