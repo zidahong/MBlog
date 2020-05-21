@@ -61,7 +61,6 @@ export default {
       isRegPassword: false,
       isRegUser: false,
       isNullAuthCode: false,
-      
 
       banSendAuth: false,
       banClass: false,
@@ -72,14 +71,14 @@ export default {
         authCode: "",
         user: ""
       },
-      userEmail:''
+      userEmail: ""
     };
   },
   methods: {
     sendAuth() {
       //发送验证码
       this.isRegUser = false;
-      
+
       let regUser = /^([A-z])([0-9]|[A-z]){3,7}$/g;
       if (!regUser.test(this.changeInfo.user)) {
         this.isRegUser = true;
@@ -104,9 +103,12 @@ export default {
             console.log(result);
             if (result == "userOrEmailUdefined") {
               alert("找不到用户名或邮箱");
-            } else if(result == "getEmailError"||result == 'sendEmailFaliure'){
+            } else if (
+              result == "getEmailError" ||
+              result == "sendEmailFaliure"
+            ) {
               alert("服务发生错误");
-            }else {
+            } else {
               this.userEmail = result;
               this.isError = false;
               this.isSend = true;
@@ -136,7 +138,7 @@ export default {
           if (result == "changePasswordSuccess") {
             alert("密码修改成功");
             window.location.reload();
-          } else if ((result == "authCodeError")) {
+          } else if (result == "authCodeError") {
             this.isError = true;
             this.isSend = false;
           } else {

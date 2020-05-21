@@ -2,11 +2,11 @@
   <div class="article-box">
     <div class="article-box-header">推荐</div>
     <div id="article-box-block" v-for="item in text" :key="item.ID" @click="showArticle(item)">
-      <Articleblock @click="showArticle">
+      <menuItem @click="showArticle">
         <template v-slot:header>{{item.title}}</template>
         <template v-slot:section>{{item.text}}</template>
         <template v-slot:footer>{{item.time}}</template>
-      </Articleblock>
+      </menuItem>
     </div>
     <div id="article-box-button">
       <button v-if="isMore" @click="getNextText">显示更多内容~</button>
@@ -16,10 +16,10 @@
 </template>
 
 <script>
-import Articleblock from "./ArticleBlock";
+import menuItem from "@/vue/main/menuItem";
 let getText = require("@/js/ajax.js");
 export default {
-  name: "ArticleBox",
+  name: "textMenu",
   data() {
     return {
       page: 1,
@@ -28,13 +28,13 @@ export default {
     };
   },
   components: {
-    Articleblock
+    menuItem
   },
   created() {
     getText.ajax("getblock?page=1&nums=5", data => {
       for (let i = 0; i < data.length; i++) {
         if (data[i].text.length > 100) {
-          data[i].text = data[i].text.slice(0, 60)+'...';
+          data[i].text = data[i].text.slice(0, 60) + "...";
         }
       }
       this.text = data;
@@ -48,21 +48,19 @@ export default {
       let sql = "getblock?page=" + start + "&nums=5";
 
       getText.ajax(sql, data => {
-
         for (let i = 0; i < data.length; i++) {
           //限制简介的字长
           if (data[i].text.length > 100) {
-            data[i].text = data[i].text.slice(0, 60)+'...';
+            data[i].text = data[i].text.slice(0, 60) + "...";
           }
         }
 
         if (data == "" || data.length < 5) {
           this.text = this.text.concat(data);
-        
+
           this.isMore = false;
         } else {
           this.text = this.text.concat(data);
-       
         }
       });
     },

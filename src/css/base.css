@@ -9,7 +9,8 @@ button{
 }
 
 a{
-    outline: none;
+    outline: none; 
+    text-decoration: none;
 }
 
 body{
@@ -17,18 +18,12 @@ body{
     font-family: "Microsoft YaHei" ! important;
 }
 
-a{
-    text-decoration: none;
-    outline: none;
-}
+
 
 li{
     list-style: none;
 }
-#html{
-    min-height: 101%;
-    min-width: 101%;
-}
+
 h3{
     font-size: 18px;
     font-weight: 600;

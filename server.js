@@ -2,12 +2,13 @@ let express = require('express');
 let path = require('path');
 let bodyParser = require('body-parser');
 let cookieParser = require('cookie-parser');
-
+// let history = require("connect-history-api-fallback");
 
 let mysqlQuery = require('./src/server/handle.js');
 let serConfig = require('./src/server/serConfig.js');
 
 let app = express();
+
 path.resolve(__dirname, '..')
 app.use(bodyParser.urlencoded({
     extended: false
@@ -15,6 +16,7 @@ app.use(bodyParser.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'dist')));
 app.use(bodyParser.json());
+// app.use(history());
 
 
 //处理跨域问题

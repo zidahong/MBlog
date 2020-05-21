@@ -1,17 +1,15 @@
 <template>
   <div id="app">
-    <Headbox></Headbox>
+    <navigation></navigation>
     <div class="background">
-      <BackgroundBox></BackgroundBox>
+      <mainContent></mainContent>
     </div>
-    
-
-  </div>
+</div>
 </template>
 
 <script>
-import Headbox from "./headBox/A_HeadBox";
-import BackgroundBox from "@/vue/articleBox/A_BackgroundBox"
+import navigation from "@/vue/navigation/navbar";
+import mainContent from "@/vue/main/main";
 
 
 
@@ -19,8 +17,8 @@ import BackgroundBox from "@/vue/articleBox/A_BackgroundBox"
 export default {
   name: "App",
   components: {
-    Headbox,
-    BackgroundBox,
+    navigation,
+    mainContent,
   }
 };
 </script>

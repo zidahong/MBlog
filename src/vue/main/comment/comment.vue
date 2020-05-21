@@ -30,9 +30,9 @@
 <script>
 const ajax = require("@/js/ajax.js");
 const tool = require("@/js/tool.js");
-import Vue from "vue";
+
 export default {
-  name: "Comment",
+  name: "comment",
   data() {
     return {
       comments: {},

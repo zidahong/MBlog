@@ -1,10 +1,10 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import backgroundbox from '@/vue/articleBox/ArticleBox';
-import writeArticle from '@/vue/editBox/EditBox';
-import showArticle from '@/vue/articleBox/ShowArticleBox'
-import setup from '@/vue/headbox/SetUp'
-import setPassword from '@/vue/headbox/setPassword'
+
+import menu from '@/vue/main/menu';
+import content from '@/vue/main/content';
+import edit from '@/vue/main/edit/edit'
+import setPassword from '@/vue/navigation/setPassword'
 
 Vue.use(VueRouter);
 
@@ -16,16 +16,16 @@ const routes = [
     {
         // 首页
         path:'/index',
-        component:backgroundbox,
+        component:menu,
     },
     {
         path:'/blog/:id',
-        component:showArticle,
+        component:content,
     },
     {
         //写文章
-        path:'/writearticle',
-        component:writeArticle
+        path:'/edit',
+        component:edit
       
     },
     {

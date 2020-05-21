@@ -23,7 +23,7 @@
 let ajax = require("@/js/ajax.js");
 const tool = require("@/js/tool.js");
 export default {
-  name: "EditBox",
+  name: "edit",
   data() {
     return {
       discuss: {

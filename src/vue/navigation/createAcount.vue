@@ -61,7 +61,7 @@
 <script>
 let requstLogin = require("@/js/ajax.js");
 export default {
-  name: "LoginPage",
+  name: "createAcount",
 
   data() {
     return {
@@ -112,5 +112,110 @@ export default {
 </script>
 
 <style>
-@import "~@/css/createAcount.css";
+#create-page-background{
+	display: flex;
+	justify-content: center;
+	background-color:rgba(0,0,0,0.2);
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	animation:move;
+	animation-duration: 0.5s;
+}
+
+
+@keyframes move{
+	from{
+		transform: translateY(-100%);
+	}
+}
+
+#create-page {
+	background-color: #ffffff;
+	border-radius: 3px;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+	width: 420px;
+	position: fixed;
+	top: 100px;
+	box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
+
+}
+
+#create-page-head {
+	display: flex;
+	justify-content: space-between;
+	align-items:flex-end;
+	border-bottom: rgba(0,0,0,0.2) solid 1px;
+	font-weight: 600;
+	font-size: 16px;
+	color: #0077e6;
+	padding: 20px;
+}
+
+#create-page-head button{
+	display: block;
+	background-color: transparent;
+	border: 0;
+	font-size: 20px;
+	cursor: pointer;
+	color: #8590a6;
+}
+
+#create-page-input{
+	padding: 20px;
+}
+
+.create-page-input-class-box{
+	border-bottom: rgba(0,0,0,0.2) solid 1px;
+	margin: 20px 0;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.create-page-input-class {
+	border: none;
+	font-size: 16px;
+	height: 48px;
+	width: 220px;
+}
+
+#create-page-input-tip{
+	font-size: 15px;
+	color: #8590a6;
+}
+
+
+
+#create-page-input-button{
+	box-sizing: border-box;
+	padding: 20px 0;
+}
+.create-page-input-button {
+	
+	box-sizing: border-box;
+	width: 100%;
+	height: 40px;
+	color:white;
+	border-radius: 3px;
+	background-color:rgb(0, 132, 255);
+	border: 0;
+	outline: none;
+	font-size: 16px;
+}
+
+.create-page-input-button:hover{
+	background-color: rgb(0, 119, 230);
+	color: #ffffff;
+}
+
+.error-tip{
+	color: red;
+}
+
 </style>
