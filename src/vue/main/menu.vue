@@ -37,6 +37,9 @@ export default {
           data[i].text = data[i].text.slice(0, 60) + "...";
         }
       }
+      if (data.length < 5) {
+        this.isMore = false;
+      }
       this.text = data;
     });
   },
@@ -57,7 +60,6 @@ export default {
 
         if (data == "" || data.length < 5) {
           this.text = this.text.concat(data);
-
           this.isMore = false;
         } else {
           this.text = this.text.concat(data);
@@ -104,6 +106,7 @@ export default {
   height: 52px;
   padding: 10px;
   border-radius: 3px;
+  align-items: center;
 }
 
 #article-box-button button {
@@ -114,6 +117,7 @@ export default {
   padding: 0 10px;
   border-radius: 3px;
   cursor: pointer;
+  height: 100%;
 }
 
 #article-box-button p {

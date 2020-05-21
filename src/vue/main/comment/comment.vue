@@ -189,6 +189,7 @@ export default {
 #comment-box-button {
   display: flex;
   justify-content: center;
+  align-items: center;
   background-color: #fff;
   box-sizing: border-box;
   height: 52px;
@@ -205,6 +206,7 @@ export default {
   padding: 0 10px;
   border-radius: 3px;
   cursor: pointer;
+  height: 100%;
 }
 
 #comment-box-button button:hover {
