@@ -1,15 +1,11 @@
 <template>
   <div id="edit-box">
     <div id="edit-box-contain">
-      <div id="edit-box-header" class="edit-box-class">
-       发帖
-      </div>
+      <div id="edit-box-header" class="edit-box-class">发帖</div>
       <div id="edit-article-head" class="edit-box-class">
-     
         <textarea name="Head" v-model="discuss.title" placeholder="请输入标题~"></textarea>
       </div>
       <div id="edit-article" class="edit-box-class">
-        
         <textarea name="Head" v-model="discuss.text" placeholder="请输入内容~"></textarea>
       </div>
       <div id="edit-article-submit">
@@ -27,22 +23,25 @@ export default {
   data() {
     return {
       discuss: {
-       title:"",
-       text:"",
-       time:"",
-       user:""
+        title: "",
+        text: "",
+        time: "",
+        user: ""
       }
     };
   },
   methods: {
     submitText() {
-      if (!this.$store.state.user) {
-        this.$store.commit('openLoginPage')
+      if (this.discuss.text.length < 10) {
+        alert("内容字数要大于10");
+      } else if (this.discuss.title.length < 0) {
+        alert("标题不能为空！");
+      } else if (!this.$store.state.user) {
+        this.$store.commit("openLoginPage");
       } else {
-        this.discuss.user =this.$store.state.user;
-          //获取评论时间
-         this.discuss.time = tool.getTime();
-
+        this.discuss.user = this.$store.state.user;
+        //获取评论时间
+        this.discuss.time = tool.getTime();
         let discuss = this.discuss;
         ajax.submitText(discuss, data => {
           alert("提交成功");
@@ -55,7 +54,6 @@ export default {
 </script>
 
 <style>
-
 #edit-box {
   background-color: #fff;
   border-radius: 3px;
@@ -64,8 +62,7 @@ export default {
   box-shadow: 0 2px 12px 0 rgba(0, 0, 0, 0.1);
 }
 
-
-#edit-box-header{
+#edit-box-header {
   box-sizing: border-box;
   height: 59px;
   color: #0084ff;
@@ -74,7 +71,7 @@ export default {
   padding: 20px;
 }
 
-#edit-article-head{
+#edit-article-head {
   padding: 20px;
 }
 #edit-article-head textarea {
@@ -105,15 +102,14 @@ export default {
   border-radius: 3px;
 }
 
-#edit-article{
+#edit-article {
   padding: 20px;
 }
-
 
 #edit-article-submit button {
   width: 100%;
   background-color: #0084ff;
-   color: #fff;
+  color: #fff;
   padding: 10px;
   border-radius: 3px;
   border: solid 1px #eeeeee;
@@ -122,9 +118,8 @@ export default {
 }
 
 #edit-article-submit button:hover {
-   background-color: #0077e6;
-    color: #fff;
-    outline: none;
+  background-color: #0077e6;
+  color: #fff;
+  outline: none;
 }
-
 </style>
