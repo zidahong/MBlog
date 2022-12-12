@@ -14,7 +14,7 @@
   "devDependencies": {
     "body-parser": "^1.19.0",
     "css-loader": "^3.5.3",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.2.1",
     "style-loader": "^1.2.1",
